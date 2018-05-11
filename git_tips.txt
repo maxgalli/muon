@@ -1,12 +1,18 @@
 ---- Useful Tips ----
 
 Comandi più usati:
-  git pull //copia sul locale le modifiche fatte nel remoto
+  -copia sul locale le modifiche fatte nel remoto:
+  git pull
 
+  -procedura completa per caricare/modificare un file:
   git add nomefile
   git commit -m "nome_del_commit"
-  git push -u origin master
-  //procedura completa per caricare/modificare un file
+  git push -u origin master         //master è il nome del branch
 
 Inoltre:
+  -mostra differenze tra locale e remoto:
+  git status
+  -mostra branches
+  git branch
+
 
