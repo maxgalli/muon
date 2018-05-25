@@ -6,5 +6,5 @@ CXX_FLAGS = -W -Wall -pedantic -Wno-non-virtual-dtor -Wno-long-long -Wwrite-stri
 
 CXX_DEFINES = -DG4INTY_USE_XT -DG4UI_USE -DG4UI_USE_TCSH -DG4VERBOSE -DG4VIS_USE -DG4VIS_USE_OPENGL -DG4VIS_USE_OPENGLX -DG4_STORE_TRAJECTORY
 
-CXX_INCLUDES = -isystem /Users/massimilianogalli/Documents/magistrale/lab/negrini/geant4-build/geant4-install/include/Geant4 -I/Users/massimilianogalli/Documents/magistrale/lab/negrini/ex_class/provv/include 
+CXX_INCLUDES = -isystem /Users/massimilianogalli/Documents/magistrale/lab/negrini/geant4-build/geant4-install/include/Geant4 -I/Users/massimilianogalli/Documents/magistrale/lab/muon/provv/include 
 

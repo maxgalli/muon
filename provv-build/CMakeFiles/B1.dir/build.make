@@ -43,10 +43,10 @@ RM = /usr/local/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/massimilianogalli/Documents/magistrale/lab/negrini/ex_class/provv
+CMAKE_SOURCE_DIR = /Users/massimilianogalli/Documents/magistrale/lab/muon/provv
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/massimilianogalli/Documents/magistrale/lab/negrini/ex_class/provv-build
+CMAKE_BINARY_DIR = /Users/massimilianogalli/Documents/magistrale/lab/muon/provv-build
 
 # Utility rule file for B1.
 
@@ -71,6 +71,6 @@ CMakeFiles/B1.dir/clean:
 .PHONY : CMakeFiles/B1.dir/clean
 
 CMakeFiles/B1.dir/depend:
-	cd /Users/massimilianogalli/Documents/magistrale/lab/negrini/ex_class/provv-build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Users/massimilianogalli/Documents/magistrale/lab/negrini/ex_class/provv /Users/massimilianogalli/Documents/magistrale/lab/negrini/ex_class/provv /Users/massimilianogalli/Documents/magistrale/lab/negrini/ex_class/provv-build /Users/massimilianogalli/Documents/magistrale/lab/negrini/ex_class/provv-build /Users/massimilianogalli/Documents/magistrale/lab/negrini/ex_class/provv-build/CMakeFiles/B1.dir/DependInfo.cmake --color=$(COLOR)
+	cd /Users/massimilianogalli/Documents/magistrale/lab/muon/provv-build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Users/massimilianogalli/Documents/magistrale/lab/muon/provv /Users/massimilianogalli/Documents/magistrale/lab/muon/provv /Users/massimilianogalli/Documents/magistrale/lab/muon/provv-build /Users/massimilianogalli/Documents/magistrale/lab/muon/provv-build /Users/massimilianogalli/Documents/magistrale/lab/muon/provv-build/CMakeFiles/B1.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/B1.dir/depend
 

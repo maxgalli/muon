@@ -1,4 +1,4 @@
-# Install script for directory: /Users/massimilianogalli/Documents/magistrale/lab/negrini/ex_class/provv
+# Install script for directory: /Users/massimilianogalli/Documents/magistrale/lab/muon/provv
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -28,7 +28,7 @@ if(NOT CMAKE_INSTALL_COMPONENT)
 endif()
 
 if("${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/bin" TYPE EXECUTABLE FILES "/Users/massimilianogalli/Documents/magistrale/lab/negrini/ex_class/provv-build/exampleB1")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/bin" TYPE EXECUTABLE FILES "/Users/massimilianogalli/Documents/magistrale/lab/muon/provv-build/exampleB1")
   if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin/exampleB1" AND
      NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin/exampleB1")
     execute_process(COMMAND /usr/bin/install_name_tool
@@ -48,5 +48,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/Users/massimilianogalli/Documents/magistrale/lab/negrini/ex_class/provv-build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/Users/massimilianogalli/Documents/magistrale/lab/muon/provv-build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

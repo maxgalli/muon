@@ -66,11 +66,11 @@ G4VPhysicalVolume* B1DetectorConstruction::Construct()
   // Scint1
   //
   G4Material* scint_mat = nist->FindOrBuildMaterial("G4_WATER");
-  G4ThreeVector pos1 = G4ThreeVector(0.*cm, 0.*cm, 0*cm);
+  G4ThreeVector pos1 = G4ThreeVector(0.*cm, 0.5*cm, 0*cm);
 
-  G4double scint_x = 99.2*cm;
-  G4double scint_y = 1.2*cm;
-  G4double scint_z = 11.3*cm;
+  G4double scint_x = 100.0*cm;
+  G4double scint_y = 1.0*cm;
+  G4double scint_z = 23.0*cm;
   G4Box* scint1 =
     new G4Box("Scintillator1", 0.5*scint_x, 0.5*scint_y, 0.5*scint_z);
 
@@ -92,7 +92,7 @@ G4VPhysicalVolume* B1DetectorConstruction::Construct()
   // Fe1
   //
   G4Material* iron_mat = nist->FindOrBuildMaterial("G4_Fe");
-  G4ThreeVector pos2 = G4ThreeVector(0.*cm, 16.6*cm, 0.0*cm);
+  G4ThreeVector pos2 = G4ThreeVector(0.*cm, 8.*cm, 0.0*cm);
 
   G4double iron_x = 150.0*cm;
   G4double iron_y = 0.5*cm;
@@ -117,11 +117,11 @@ G4VPhysicalVolume* B1DetectorConstruction::Construct()
   //
   // Scint2
   //
-  G4ThreeVector pos3 = G4ThreeVector(0.*cm, 32.2*cm, 0*cm);
+  G4ThreeVector pos3 = G4ThreeVector(0.*cm, 15.0*cm, 0*cm);
 
-  scint_x = 118.5*cm;
-  scint_y = 1.2*cm;
-  scint_z = 11.3*cm;
+  scint_x = 119.0*cm;
+  scint_y = 1.0*cm;
+  scint_z = 23.0*cm;
   G4Box* scint2 =
     new G4Box("Scintillator2", 0.5*scint_x, 0.5*scint_y, 0.5*scint_z);
 
@@ -142,11 +142,11 @@ G4VPhysicalVolume* B1DetectorConstruction::Construct()
   //
   // Scint3
   //
-  G4ThreeVector pos4 = G4ThreeVector(0.*cm, 47.8*cm, 0*cm);
+  G4ThreeVector pos4 = G4ThreeVector(0.*cm, 27.0*cm, 0*cm);
 
-  scint_x = 73.4*cm;
-  scint_y = 1.2*cm;
-  scint_z = 11.3*cm;
+  scint_x = 72.0*cm;
+  scint_y = 1.0*cm;
+  scint_z = 23.0*cm;
   G4Box* scint3 =
     new G4Box("Scintillator3", 0.5*scint_x, 0.5*scint_y, 0.5*scint_z);
 
@@ -167,9 +167,9 @@ G4VPhysicalVolume* B1DetectorConstruction::Construct()
   //
   // Fe2
   //
-  G4ThreeVector pos5 = G4ThreeVector(0.*cm, 62.0*cm, 0.0*cm);
+  G4ThreeVector pos5 = G4ThreeVector(0.*cm, 38.0*cm, 0.0*cm);
 
-  iron_x = 73.4*cm;
+  iron_x = 91.0*cm;
   iron_y = 5.1*cm;
   iron_z = 40.0*cm;
   G4Box* iron2 =
@@ -192,10 +192,10 @@ G4VPhysicalVolume* B1DetectorConstruction::Construct()
   //
   // Fe3
   //
-  G4ThreeVector pos6 = G4ThreeVector(0.*cm, 83.0*cm, 0.0*cm);
+  G4ThreeVector pos6 = G4ThreeVector(0.*cm, 51.5*cm, 0.0*cm);
 
-  iron_x = 90.0*cm;
-  iron_y = 20.8*cm;
+  iron_x = 91.0*cm;
+  iron_y = 20.*cm;
   iron_z = 40.0*cm;
   G4Box* iron3 =
     new G4Box("iron3", 0.5*iron_x, 0.5*iron_y, 0.5*iron_z);
