@@ -1,0 +1,8 @@
+/Users/massimilianogalli/Documents/magistrale/lab/negrini/ex_class/provv-build/CMakeFiles/install/local.dir
+/Users/massimilianogalli/Documents/magistrale/lab/negrini/ex_class/provv-build/CMakeFiles/install/strip.dir
+/Users/massimilianogalli/Documents/magistrale/lab/negrini/ex_class/provv-build/CMakeFiles/install.dir
+/Users/massimilianogalli/Documents/magistrale/lab/negrini/ex_class/provv-build/CMakeFiles/list_install_components.dir
+/Users/massimilianogalli/Documents/magistrale/lab/negrini/ex_class/provv-build/CMakeFiles/rebuild_cache.dir
+/Users/massimilianogalli/Documents/magistrale/lab/negrini/ex_class/provv-build/CMakeFiles/edit_cache.dir
+/Users/massimilianogalli/Documents/magistrale/lab/negrini/ex_class/provv-build/CMakeFiles/B1.dir
+/Users/massimilianogalli/Documents/magistrale/lab/negrini/ex_class/provv-build/CMakeFiles/exampleB1.dir
