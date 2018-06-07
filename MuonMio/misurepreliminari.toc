@@ -1,0 +1,14 @@
+\contentsline {chapter}{\numberline {1}Misure Preliminari}{1}
+\contentsline {section}{\numberline {1.1}Misura della tensione di lavoro}{1}
+\contentsline {section}{\numberline {1.2}Curve di ritardo}{4}
+\contentsline {section}{\numberline {1.3}Curve di discriminazione}{7}
+\contentsline {section}{\numberline {1.4}Energia depositata negli scintillatori}{9}
+\contentsline {chapter}{\numberline {2}Misura della vita media del Muone}{13}
+\contentsline {section}{\numberline {2.1}Il Trigger}{13}
+\contentsline {section}{\numberline {2.2}Calibrazione dei TDC}{15}
+\contentsline {section}{\numberline {2.3}Circuito di Acquisizione}{17}
+\contentsline {section}{\numberline {2.4}Analisi Dati}{18}
+\contentsline {chapter}{Conclusioni}{19}
+\contentsline {chapter}{\numberline {A}Prima Appendice}{21}
+\contentsline {chapter}{\numberline {B}Seconda Appendice}{23}
+\contentsline {chapter}{Bibliografia}{25}
