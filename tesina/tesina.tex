@@ -41,10 +41,17 @@
 \usepackage{amsmath}
 \usepackage{latexsym}
 \usepackage{amsthm}
+\usepackage{enumitem}
+\usepackage{subfig}
+% For better navigation
+\usepackage[hidelinks]{hyperref}
+% For forcing image position (by using [H])
+\usepackage{float}
+
 %
 \oddsidemargin=30pt \evensidemargin=20pt%impostano i margini
-\hyphenation{sil-la-ba-zio-ne pa-ren-te-si}%serve per la sillabazione: tra parentesi 
-					   %vanno inserite come nell'esempio le parole 
+\hyphenation{sil-la-ba-zio-ne pa-ren-te-si}%serve per la sillabazione: tra parentesi
+					   %vanno inserite come nell'esempio le parole
 %					   %che latex non riesce a tagliare nel modo giusto andando a capo.
 
 %
@@ -92,11 +99,11 @@ INDICE}}
 \chapter{Misure Preliminari}                %crea il capitolo
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%imposta l'intestazione di pagina
 \lhead[\fancyplain{}{\bfseries\thepage}]{\fancyplain{}{\bfseries\rightmark}}
-\pagenumbering{arabic}                  
+\pagenumbering{arabic}
 
 
 
-\section{Misura della tensione di lavoro} 
+\section{Misura della tensione di lavoro}
 \label{sec:tension}                %crea la sezione
 Per la prima delle misure preliminari ci è stato chiesto di stimare la tensione di lavoro ideale per due dei fotomoltiplicatori impiegati dal telescopio. Se viene applicata infatti una tensione troppo bassa la valanga degli elettroni non viene prodotta affatto, mentre se questa è troppo elevata si va a generare una corrente di buio dovuta agli e termalizzati sul fotocatodo che producono un segnale in assenza di una particella passante e possono portare a saturazione danneggiando il dispositivo.\\
  Nello specifico si è deciso di utilizzare i PM R00B e L00B, ovvero due fotomoltiplicatori posti ai capi del medesimo scintillatore. Questa è infatti sembrata la scelta più opportuna se si pensa che per ottenere la tensione di lavoro dei due macchinari, si sono studiati il numero di rivelazioni coincidenti  di muoni cosmici passanti (uniche particelle presenti nei raggi cosmici che sono in grado di superare la lastra di ferro intatti). Solo nel caso in cui i due PM appartengano allo stesso scintillatore si può essere fiduciosi del fatto che i due segnali in coincidenza siano dovuti al passaggio della stessa particella; se si fossero scelti due PM appartenenti allo stesso piano ma a scintillatori diversi, si sarebbe avuta la certezza di avere solo coincidenze accidentali, mentre nel caso li si fosse presi in due piani separati si sarebbe corso il rischio di perdere tutte le coincidenze dovute a muoni passanti con una sufficiente inclinazione verticale, oltre a rischiare coincidenze accidentali dovute a due muoni vicini passanti singolarmente sui due rivelatori.\\
@@ -119,7 +126,7 @@ Per la prima delle misure preliminari ci è stato chiesto di stimare la tensione 
  		\label{tab:tension}
  	\end{center}
  \end{table}
- 
+
   \begin{figure}[h]
   	\begin{center}
   		\includegraphics[width=0.6\textwidth]{./SCHEMI/Tension.png} % Include the image placeholder.png
@@ -136,7 +143,7 @@ Per la prima delle misure preliminari ci è stato chiesto di stimare la tensione 
    \end{figure}
    \clearpage
   Il circuito realizzato per eseguire le misure è invece schematizzato in Figura \ref{fig:circ-tens} e consiste di due generatori di tensione variabili (CAEN Mod.470) che alimentano i due PM. Il segnale analogico prodotto da questi viene quindi fatto passare attraverso dei discriminatori LED (CAEN Mod.840) che lo trasformano in un segnale digitale standard NIM costituito da un impulso di onda quadra larga 40ns e profonda -800 mV. I segnali digitalizzati dei due PM sono quindi collegati tramite un modulo logico AND (CAEN Mod 405) il cui output darà il numero di coincidenze che verrà misurato tramite un modulo counter, con il quale si è impostato un tempo di presa dati pari a 90s. Sebbene non sia rappresentato in figura, i conteggi sono stati effettuati in maniera analoga anche  per i singoli canali, che sono stati sdoppiati utilizzando dei moduli FAN I/O, e collegati individualmente a dei moduli counter.\\
-  
+
 
 
 
@@ -239,7 +246,7 @@ Come già accennato nei precedenti paragrafi, per trasformare i segnali analogici
 
 
 
-\section{Energia depositata negli scintillatori}           
+\section{Energia depositata negli scintillatori}
 
 L'apparato di rivelazione utilizzato consiste di scintillatori plastici sottili. Attendiamo che l'energia persa dalle particelle che attraversano tale apparato segua una distribuzione di Landau.\\
 Mentre per assorbitori relativamente spessi è comune osservare una distribuzione dell?energia trasferita essenzialmente gaussiana, nel caso di assorbitori sottili il valor medio della distribuzione è più grande del valore più probabile. Qualitativamente possiamo spiegare questo
@@ -248,7 +255,7 @@ originare la coda asimmetrica tipica della distribuzione di Landau.
 Per grandi spessori, viceversa, l'alto numero medio di urti permette di introdurre l'approssimazione dovuta al Teorema del Limite Centrale. In altri termini, eventi a grande trasferimento di energia sono sempre presenti ma statisticamente sommersi dagli altri.\\
 Per verificare il corretto funzionamento dei rivelatori si è quindi deciso di misurare la quantità di carica prodotta nei fotomoltiplicatori che è proporzionale all'energia depositata ed è data da:
 \begin{equation}
-Q=N_{\gamma}\times CE \times QE \times G 
+Q=N_{\gamma}\times CE \times QE \times G
 \end{equation}
 dove:
 \begin{itemize}
@@ -261,14 +268,14 @@ Il circuito utilizzato per effettuare questa misura è schematizzato in Figura \r
 \begin{equation}
 T (\mu-passante)=(L00 \lor R00) \land (L10 \lor R10) \land (L20 \lor R20)
 \end{equation}
-La carica depositata sui tre scintillatori è misurata tramite un modulo CaMAC CIA (Charge Integrating ADC) il quale integra il segnale analogico in ingresso per un certo intervallo di tempo definito dalla lunghezza del segnale digitale sul GATE. Il segnale del Trigger viene dato in entrata a tre dual-timer: 
+La carica depositata sui tre scintillatori è misurata tramite un modulo CaMAC CIA (Charge Integrating ADC) il quale integra il segnale analogico in ingresso per un certo intervallo di tempo definito dalla lunghezza del segnale digitale sul GATE. Il segnale del Trigger viene dato in entrata a tre dual-timer:
 \begin{enumerate}
-	\item Il primo viene allargato fino a 400ns e usato come gate di presa di segnale del modulo CIA; 
+	\item Il primo viene allargato fino a 400ns e usato come gate di presa di segnale del modulo CIA;
 	\item Il secondo viene allargato fino a 1s e usato come veto dell'AND logico del trigger per dare il tempo al CIA di processare correttamente i segnali;
 	\item Dal terzo si prende l'end-marker allargato tramite un LED e ritardato di 1000ns in modo che si collochi necessariamente dopo tutti i segnali e dopo il gate, ma comunque all'interno del tempo morto del veto. Questo segnale viene dato in input a uno dei canali del CIA (channel 7) in modo da risultare attivo, ma senza misurare nulla: ciò permette di fare una stima del rumore elettronico introdotto nel circuito.
 \end{enumerate}
 Gli altri canali del CIA sono riempiti dai segnali provenienti dai PM Left e Right degli scintillatori (channels 1-6), che vengono leggermente ritardati tramite un delay per compensare i ritardi introdotti nell'elettrronica, o sono lasciati vuoti in modo da poter fare una stima del rumore termico presente nel circuito (channels 8-16).\\
-Essendo il CIA un modulo CAMAC i dati sono stati acquisiti tramite un semplice programma in LabView. I risultati dell'analisi dei dati così raccolti forniscono,come ci si poteva aspettare, delle distribuzioni di Landau (vedi Figura \ref{energy} a titolo di esempio e tutte le curve in Appendice). La stima di rumore elettronico e termico è effettuata in Appendice. 
+Essendo il CIA un modulo CAMAC i dati sono stati acquisiti tramite un semplice programma in LabView. I risultati dell'analisi dei dati così raccolti forniscono,come ci si poteva aspettare, delle distribuzioni di Landau (vedi Figura \ref{energy} a titolo di esempio e tutte le curve in Appendice). La stima di rumore elettronico e termico è effettuata in Appendice.
 \clearpage
  \begin{figure}[h!]
  	\begin{center}
@@ -277,16 +284,16 @@ Essendo il CIA un modulo CAMAC i dati sono stati acquisiti tramite un semplice p
 	 	\label{fig:circ-energy}
  	\end{center}
  \end{figure}
- 
+
  \begin{figure}[h!]
  	\begin{center}
  		\includegraphics[width=0.6\textwidth]{./SCHEMI/Tension.png} % Include the image placeholder.png
  		\caption{\small Curve dell'energia depositata nel PM}
  	\label{energy}
  	\end{center}
- 	
+
  \end{figure}
- 
+
 
 
 
@@ -302,7 +309,7 @@ Essendo il CIA un modulo CAMAC i dati sono stati acquisiti tramite un semplice p
 
 \chapter{Misura della vita media del Muone}
 Per poter misurare la vita media dei muoni provenienti dai raggi cosmici è necessario costruire un circuito di trigger che permetta di selezionare eventi di tipo $\mu$-stop, ovvero tali per cui le particelle $\mu$ si fermano nella lastra di ferro presente tra i piani 1 e 2 del rivelatore. Questo segnale fungerà da start per un modulo TDC (time to digital converter), che grazie al suo clock interno incomincerà a misurare il tempo trascorso fino all'arrivo di un segnale di stop rappresentato dal passaggio di un elettrone di decadimento su uno qualsiasi degli scintillatori.
-\section{Il Trigger}                 
+\section{Il Trigger}
 \label{sec:trigger}
 Come già accennato, il trigger che vogliamo creare deve essere in grado di selezionare eventi di tipo $\mu$-stop in cui il muone passa attraverso i primi due piani di scintillazione, per poi fermarsi nella sottile lastra di ferro tra il piano 1 e 2, dove infine decade. questo significa che vorremo una coincidenza di segnale tra il piano 0 e il piano 1 e un'assenza sul piano 2.\\
  In termini di funzioni logiche tale richiesta si può tradurre come:
@@ -386,34 +393,133 @@ Uno dei segnali proveniente dai canali di uscita del trigger viene infine ritard
 \end{figure}
 
 \section{Analisi Dati}
+L'acquisizione dei dati si è svolta su un arco temporale di circa quattro giorni, per un totale di 1014917 eventi collezionati. Il processo di analisi consta principalmente dei due seguenti punti:
+\begin{itemize}
+  \item applicazione di tagli al fine di eliminare il fondo;
+  \item fit della distribuzione dei tempi alla funzione nota, al fine di inferire la vita media del muone e altri parametri secondari dell'equazione.
+\end{itemize}
+Istogrammi e fit sono stati realizzati rispettivamente con le librerie MatPlotLib e SciPy di Python. \\
+La funzione usata come modello per la stima dei parametri considera una legge esponenziale per il decadimento del muone e un fondo constante, dovuto al passaggio accidentale (e raro) di un secondo muone che viene scambiato per un elettrone del decadimento:
+\begin{equation}
+  f(t;\tau_{\mu},N_{sig},N_{bkg}) = N_{sig} \cdot \exp{(-t / \tau_{\mu})} + N_{bkg}
+  \label{eqn:simple_expo}
+\end{equation}
+I tagli utilizzati sono stati i seguenti:
+\begin{enumerate}[label=(\alph*)]
+  \item eventi provenienti dal piano 1 in coincidienza con il piano 0, escludendo le coincidenze con il piano 2; con questo taglio s'intende conteggiare gli elettroni che dal ferro risalgono, passando per i piani 1 e 0;
+  \item eventi provenienti dal piano 2, escludendo le coincidenze con i piani 0 e 1; questo taglio rappresenta gli elettroni che dal ferro scendono passando per il piano 2;
+  \item unione dei due tagli precedenti, così da conteggiare, almeno nelle intenzioni, tutti gli elettroni emessi;
+  \item stesso taglio del punto precedente, ma con in più la condizione che il segnale sul piano 1 sia antecedente rispetto a quello sul piano 0, così da scartare muoni che potrebbero essere scambiati per elettroni di decadimento.
+\end{enumerate}
+
+\begin{table}[!hbt]
+  \centering
+  \begin{tabular}{c|c}
+    \hline
+    \hline
+    taglio & $\tau_{\mu}$ ($\mu$s) \\
+    \hline
+    \hline
+    a & $2.160 \pm 0.363$ \\
+    b & $2.130 \pm 0.286$ \\
+    c & $2.154 \pm 0.209$ \\
+    d & $2.123 \pm 0.291$ \\
+    \hline
+    \hline
+  \end{tabular}
+  \caption{Risultati del fit.}
+  \label{tab:res_fit}
+\end{table}
+
+In tutti e quattro i casi il fit è stato eseguito su eventi rivelati a tempi maggiori di 0.9 $\mu$s dallo START del trigger, così da escludere la grande componente di fondo presente a tempi brevi. Le curve dei fit, sovrapposte alle distribuzioni dei tempi, sono riportate in Fig. \ref{fig:taglioa}, \ref{fig:tagliob}, \ref{fig:taglioc} e \ref{fig:taglioa}. In Tab. \ref{tab:res_fit} sono invece riportati i valori trovati per la vita media del muone ($\tau_{\mu}$) in ogni taglio.
 
 
+\begin{figure}[!htb]
+  \centering
+  \includegraphics[width=.8\textwidth]{plots/piano0&1.png}
+  \caption{Taglio (a)}
+  \label{fig:taglioa}
+\end{figure}
+
+\begin{figure}[!htb]
+  \centering
+  \includegraphics[width=.8\textwidth]{plots/piano2.png}
+  \caption{Taglio (b)}
+  \label{fig:tagliob}
+\end{figure}
+
+\begin{figure}[!htb]
+  \centering
+  \includegraphics[width=.8\textwidth]{plots/soft_nopiano1.png}
+  \caption{Taglio (c)}
+  \label{fig:taglioc}
+\end{figure}
+
+\begin{figure}[!htb]
+  \centering
+  \includegraphics[width=.8\textwidth]{plots/hard_nopiano1.png}
+  \caption{Taglio (d)}
+  \label{fig:tagliod}
+\end{figure}
 
 
+\subsection{Cattura dei muoni negativi.}
+Ci si propone ora di stimare un effetto implicitamente trascurato nelle sezioni precedenti, ovvero che la vita media dei muoni negativi nella materia differisce dalla stessa quantità misurata nel vuoto. Il motivo è l'interazione elettromagnetica tra i $\mu^{-}$ e i nuclei atomici.
+\paragraph{Cattura muonica}
+Quando entrano in un materiale, i $\mu^{-}$ vengono rallentati e formano atomi muonici, ovvero atomi nei quali un elettrone è rimpiazzato da un muone negativo. Una volta formato l'atomo muonico, il $\mu^{-}$ può decadere come nel vuoto oppure essere catturato dal nucleo, con conseguente emissione di neutroni o particelle cariche.
 
+La vita media del muone negativo in un atomo muonico è dunque determinata da questi due processi concorrenti. Detti $\tau^{-}_{decay}$ la vita media del $\mu^{-}$ nel vuoto e $\tau^{-}_{capture}$ quella nella cattura neutronica, è possibile scrivere la vita media totale come:
+\begin{equation}
+  \frac{1}{\tau_{A}} = \frac{1}{\tau^{-}_{decay}} + \frac{1}{\tau^{-}_{capture}}
+  \label{eqn:neg_muon_total}
+\end{equation}
 
+Essa, nella sua componente dovuta alla cattura, dipende fortemente dal numero atomico $Z$ del materiale. Nel caso del ferro ($Z=26$) si hanno:
+\begin{equation}
+  \tau^{-}_{capture}=0.22 \mu s
+  \label{eqn:tau_cap_iron}
+\end{equation}
 
+\begin{equation}
+  \tau_{A}=0.20 \mu s
+  \label{eqn:tau_tot_iron}
+\end{equation}
+Si sottolinea che negli esperimenti è sempre la $\tau_{A}$ ad essere misurata.
 
+\paragraph{Misura e risultati.}
+In fase di analisi dati, è possibile tenere conto del diverso contributo dei $\mu^{-}$ inserendo nel modello un ulteriore termine esponenziale. Si avrà:
 
+\begin{equation}
+  f(t;\tau_{\mu},\tau_{A},N_{sig},N_{A},N_{bkg}) = N_{sig}\exp{(-t/\tau_{\mu})} + N_{A}\exp{(-t/\tau_{A})} + N_{bkg}
+  \label{eqn:complex_expo}
+\end{equation}
 
+Il taglio imposto è stato lo stesso del punto (c) del paragrafo precedente. Sono stati eseguiti due tipi di fit: nel primo sia $\tau_{\mu}$ che $\tau_{A}$ sono liberi, mentre nel secondo si è fissato $\tau_{\mu}=2.197 \mu$s come riportato in \cite{pdg}. I valori stimati per $\tau_{A}$ e $\tau^{-}_{capture}$, dove quest'ultimo è trovato applicando \ref{eqn:neg_muon_total}, sono riportati in Tabella \ref{tab:negative_muon}. Istogrammi e plot sono invece riportati in Fig. (\ref{fig:negative_muon}).
 
+\begin{table}
+  \centering
+  \begin{tabular}{c|c|c|c}
+    \hline
+    \hline
+    Fit & $\tau_{\mu}$ ($\mu$s) & $\tau_{A}$ ($\mu$s) & $\tau^{-}_{capture}$ ($\mu$s) \\
+    \hline
+    \hline
+    $\tau_{\mu}$ libero & $2.027 \pm 0.271$ & $0.289 \pm 0.083$ & $0.337 \pm 0.044$\\
+    $\tau_{\mu}$ fissato & & $0.163 \pm 0.083$ & $0.176 \pm 0.003$ \\
+    \hline
+    \hline
+  \end{tabular}
+  \caption{Valori fittati fittando i dati ad un modello che considera anche la vita media dei muoni negativi.}
+  \label{tab:negative_muon}
+\end{table}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+\begin{figure}[!htb]
+  \centering
+  \subfloat[][]{\includegraphics[width=.8\textwidth]{plots/soft_doubleexp.png}\label{soft_doubleexp}}\\
+  \subfloat[][]{\includegraphics[width=.8\textwidth]{plots/soft_doubleexp_fixed.png}\label{soft_doubleexp_fixed}}\\
+  \caption{}
+  \label{fig:negative_muon}
+\end{figure}
 
 
 
@@ -573,7 +679,7 @@ bibliografia: questo \`e il mio riferimento \cite{K3,K4}.
 \addcontentsline{toc}{chapter}{Bibliografia}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%provare anche questo comando:
 %%%%%%%%%%%\addcontentsline{toc}{chapter}{\numberline{}{Bibliografia}}
-\bibitem{K1} Primo oggetto bibliografia.
+\bibitem{pdg} M. Tanabashi et al. (Particle Data Group), Phys. Rev. D 98, 030001 (2018).
 \bibitem{K2} Secondo oggetto bibliografia.
 \bibitem{K3} Terzo oggetto bibliografia.
 \bibitem{K4} Quarto oggetto bibliografia.
