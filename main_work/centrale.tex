@@ -1,0 +1,515 @@
+%\documentclass[12pt,a4paper,openright,twoside]{report}
+\documentclass{standalone}
+
+\usepackage[latin1]{inputenc}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%libreria per impostare il documento
+\usepackage{fancyhdr}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%libreria per avere l'indentazione
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%   all'inizio dei capitoli, ...
+\usepackage{indentfirst}
+%
+%%%%%%%%%libreria per mostrare le etichette
+%\usepackage{showkeys}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%libreria per inserire grafici
+\usepackage{graphicx}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%libreria per utilizzare font
+                                        %   particolari ad esempio
+                                        %   \textsc{}
+\usepackage{newlfont}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%librerie matematiche
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{latexsym}
+\usepackage{amsthm}
+\usepackage{enumitem}
+\usepackage{subfig}
+% For better navigation
+\usepackage[hidelinks]{hyperref}
+% For forcing image position (by using [H])
+\usepackage{float}
+
+%
+\oddsidemargin=30pt \evensidemargin=20pt%impostano i margini
+\hyphenation{sil-la-ba-zio-ne pa-ren-te-si}%serve per la sillabazione: tra parentesi
+					   %vanno inserite come nell'esempio le parole
+%					   %che latex non riesce a tagliare nel modo giusto andando a capo.
+
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%comandi per l'impostazione
+                                        %   della pagina, vedi il manuale
+                                        %   della libreria fancyhdr
+                                        %   per ulteriori delucidazioni
+\pagestyle{fancy}\addtolength{\headwidth}{20pt}
+\renewcommand{\chaptermark}[1]{\markboth{\thechapter.\ #1}{}}
+\renewcommand{\sectionmark}[1]{\markright{\thesection \ #1}{}}
+\rhead[\fancyplain{}{\bfseries\leftmark}]{\fancyplain{}{\bfseries\thepage}}
+\cfoot{}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\linespread{1.3}                        %comando per impostare l'interlinea
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%definisce nuovi comandi
+%
+\begin{document}
+
+
+\chapter{Misure Preliminari}                %crea il capitolo
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%imposta l'intestazione di pagina
+\lhead[\fancyplain{}{\bfseries\thepage}]{\fancyplain{}{\bfseries\rightmark}}
+\pagenumbering{arabic}
+
+
+
+\section{Misura della tensione di lavoro}
+\label{sec:tension}                %crea la sezione
+Per la prima delle misure preliminari ci è stato chiesto di stimare la tensione di lavoro ideale per due dei fotomoltiplicatori impiegati dal telescopio. Se viene applicata infatti una tensione troppo bassa la valanga degli elettroni non viene prodotta affatto, mentre se questa è troppo elevata si va a generare una corrente di buio dovuta agli e termalizzati sul fotocatodo che producono un segnale in assenza di una particella passante e possono portare a saturazione danneggiando il dispositivo.\\
+ Nello specifico si è deciso di utilizzare i PM R00B e L00B, ovvero due fotomoltiplicatori posti ai capi del medesimo scintillatore. Questa è infatti sembrata la scelta più opportuna se si pensa che per ottenere la tensione di lavoro dei due macchinari, si sono studiati il numero di rivelazioni coincidenti  di muoni cosmici passanti (uniche particelle presenti nei raggi cosmici che sono in grado di superare la lastra di ferro intatti). Solo nel caso in cui i due PM appartengano allo stesso scintillatore si può essere fiduciosi del fatto che i due segnali in coincidenza siano dovuti al passaggio della stessa particella; se si fossero scelti due PM appartenenti allo stesso piano ma a scintillatori diversi, si sarebbe avuta la certezza di avere solo coincidenze accidentali, mentre nel caso li si fosse presi in due piani separati si sarebbe corso il rischio di perdere tutte le coincidenze dovute a muoni passanti con una sufficiente inclinazione verticale, oltre a rischiare coincidenze accidentali dovute a due muoni vicini passanti singolarmente sui due rivelatori.\\
+ Per procedere con la misura si è lasciata costante la tensione applicata a uno dei fotomoltiplicatori variando progressivamente quella dell'altro e si sono misurati il numero di segnali in coincidenza per ogni valore, ottenendo una curva come quella in Figura \ref{fig:curva-tens}. Si è quindi fissata la stima della tensione ottenuta per il primo PM e si è ripetuto il processo variando quella del secondo. L'andamento delle curve è in un primo momento crescente quando ancora la tensione è troppo bassa e la moltiplicazione a valanga non avviene a pieno regime, seguito da un plateau in cui entrambi i PM lavorano correttamente e infine una salita vertiginosa dovuta al regime di scarica, che si è però cercato di eludere in modo da non danneggiare gli apparati. I valori stimati sono stati ottenuti scegliendo le tensioni corrispondenti a metà del plateau e sono tabulati in Tabella \ref{tab:tension}.\\
+
+ \begin{table}[h]                        %ambiente tabella
+ 	%(serve per avere la legenda)
+ 	\begin{center}                          %centra nella pagina la tabella
+ 		\begin{tabular}{r|c|c}                  %tre colonne con righe verticali
+ 			%   prodotte con |
+ 			\hline \hline                           %inserisce due righe orizzontali
+ 			$(1,1)$ & $(1,2)$ & $(1,3)$\\           %& separa le colonne e con
+ 			\hline                                  %inserisce una riga orizzontale
+ 			$(2,1)$ & $(2,2)$ & $(2,3)$\\           %  \\ va a capo
+ 			\hline                                  %inserisce una riga orizzontale
+ 			$(3,1)$ & $(3,2)$ & $(3,3)$\\
+ 			\hline \hline                           %inserisce due righe orizzontali
+ 		\end{tabular}
+ 		\caption{tabella contenente le tensioni di lavoro stimate per i PM}
+ 		\label{tab:tension}
+ 	\end{center}
+ \end{table}
+
+  \begin{figure}[h]
+  	\begin{center}
+  		\includegraphics[width=0.6\textwidth]{./SCHEMI/Tension.png} % Include the image placeholder.png
+  		\caption{\small Rappresentazione schematica del circuito utilizzato per la calibrazione della tensione di lavoro e delle soglie di discriminazione dei fotomoltiplicatori}
+  		\label{fig:circ-tens}
+  	\end{center}
+  \end{figure}
+   \begin{figure}
+   	\begin{center}
+   		\includegraphics[width=0.6\textwidth]{./SCHEMI/Tension.png} % Include the image placeholder.png
+   		\caption{\small Curva di calibrazione della tensione data dal numero di coincidenze di segnale tra i PM L00B e R00B al variare della tensione applicata al secondo, con quella del primo lasciata costante}
+   		\label{fig:curva-tens}
+   	\end{center}
+   \end{figure}
+   \clearpage
+  Il circuito realizzato per eseguire le misure è invece schematizzato in Figura \ref{fig:circ-tens} e consiste di due generatori di tensione variabili (CAEN Mod.470) che alimentano i due PM. Il segnale analogico prodotto da questi viene quindi fatto passare attraverso dei discriminatori LED (CAEN Mod.840) che lo trasformano in un segnale digitale standard NIM costituito da un impulso di onda quadra larga 40ns e profonda -800 mV. I segnali digitalizzati dei due PM sono quindi collegati tramite un modulo logico AND (CAEN Mod 405) il cui output darà il numero di coincidenze che verrà misurato tramite un modulo counter, con il quale si è impostato un tempo di presa dati pari a 90s. Sebbene non sia rappresentato in figura, i conteggi sono stati effettuati in maniera analoga anche  per i singoli canali, che sono stati sdoppiati utilizzando dei moduli FAN I/O, e collegati individualmente a dei moduli counter.\\
+
+
+
+
+
+
+\section{Curve di ritardo}
+\label{sec:delay}
+Il trigger che vorremo usare per la misura della vita media del muone (vedi Sezione \ref{sec:trigger}) richiederà l'utilizzo di scintillatori su semipiani successivi che vadano a misurare dei segnali in coincidenza dovuti al passaggio della medesima particella.\\
+ Per ottenere un segnale in coincidenza si dovranno prima digitalizzare i due segnali analogici tramite l'uso di discriminatori, e poi sfruttare un modulo logico che fornisca un segnale in uscita solo sei i due input si sovrappongono per una certa finestra temporale. E' evidente che i segnali prodotti su due piani di scintillatori successivi non saranno mai perfettamente contemporanei, in quanto la particella passante impiegherà una certa quantità di tempo a percorrere la distanza che li separa. Senza contare che passaggi asimmettrici sull'elettronica possono introdurre ulteriori ritardi. \\
+ Risulta necessario, quindi, conoscere con una certa precisione qual'è il ritardo massimo oltre il quale due segnali in coincidenza non vengono più interpretati come tali. Ci si aspetta che questo risulti approssimativamente pari alla larghezza dell'onda quadra di un segnale NIM, che corrisponde a 40 ns.\\
+ Per effettuare tale stima, si considerano due  PM corrispondenti a due semipiani successivi, e si rivelano i muoni passanti ritardando il segnale di una e lasciando intatto quello dell'altra e viceversa. Introducendo ritardi via via più grandi e misurando il numero di coincidenze osservate si ottengono quindi quelle che vengono definite curve di ritardo. Nello specifico in Figura \ref{fig:delay} si possono osservare quelle ottenute per i PM R00B e R10B.\\
+Idealmente tali curve dovrebbero avere una forma a gradino con il drop in corrispondenza del valore di ritardo massimo oltre il quale si perdono le coincidenze. In realtà l'andamento è decisamente meno netto a causa di effetti introdotti dall'elettronica, quali il time-walk (Variazioni nella formazione del segnale digitale dovuti a differenze nelle ampiezze dei segnali analogici)  e il jitter (inconsistenze introdotte nel discriminatore a causa del rumore). E' comunque possibile ottenere delle stime per i massimi valori di ritardo, che risultano compatibili col valore atteso di 40ns e sono state riportate in Tabella \ref{tab:delay}.
+  \begin{table}[h]                        %ambiente tabella
+  	%(serve per avere la legenda)
+  	\begin{center}                          %centra nella pagina la tabella
+  		\begin{tabular}{r|c|c}                  %tre colonne con righe verticali
+  			%   prodotte con |
+  			\hline \hline                           %inserisce due righe orizzontali
+  			$(1,1)$ & $(1,2)$ & $(1,3)$\\           %& separa le colonne e con
+  			\hline                                  %inserisce una riga orizzontale
+  			$(2,1)$ & $(2,2)$ & $(2,3)$\\           %  \\ va a capo
+  			\hline                                  %inserisce una riga orizzontale
+  			$(3,1)$ & $(3,2)$ & $(3,3)$\\
+  			\hline \hline                           %inserisce due righe orizzontali
+  		\end{tabular}
+  		\caption[legenda elenco tabelle]{legenda tabella}
+  		\label{tab:delay}
+  	\end{center}
+  \end{table}
+  \\
+ Un 'altro aspetto che si può osservare è che le due curve risultano asimmetriche. Questo avviene per via del fatto che il tempo di volo della particella introduce un fattore di ritardo asimmetrico sui due rivelatori: sul piano 1 lo aumenta, laddove sul piano 0 lo diminuisce. E' possibile sfruttare tale effetto per ottenere una stima del tempo di volo effettuando una semplice differenza tra la lunghezza dei due gradini:
+ \begin{equation}
+ t_{flight}=\Delta t_1-\Delta t_2
+ \end{equation}
+ Si noti inoltre che le due curve non raggiungono mai lo 0 a causa delle coincidenze introdotte dal rumore.
+  \begin{figure}[h]
+  	\begin{center}
+  		\includegraphics[width=0.7\textwidth]{./SCHEMI/RITARDO.png} % Include the image placeholder.png
+  		\caption{\small Rappresentazione schematica del circuito utilizzato per determinafre le curve di ritardo per i PM  R00B e R10B}
+  		\label{fig:circ-delay}
+  	\end{center}
+  \end{figure}
+
+ \begin{figure}[h]
+ 	\begin{center}
+ 		\includegraphics[width=0.6\textwidth]{./SCHEMI/Tension.png} % Include the image placeholder.png
+ 		\caption{\small Curve di discriminazione per i PM R00B e R10B, poste in opposizione una accanto all'altra}
+ 		\label{fig:delay}
+ 	\end{center}
+ \end{figure}
+ \clearpage
+In Figura \ref{fig:circ-delay} si è riportato lo schema corrispondente al circuito utilizzato in questa sezione. Come si può osservare si è fatto uso di due discriminatori per la digitalizzazione del segnale, oltre che di due moduli Dual Timer che permettono di introdurre dei ritardi variabili. Per il conteggio delle coincidenze si sono infine utilizzati due moduli logici in modalità AND e due contatori impostati per 60s di presa dati. Si può notare che a causa dell'asimmetria dovuta all'utilizzo del Dual Timer su uno solo dei due percorsi, viene introdotto un ritardo irriducibile che può essere stimato:
+\begin{equation}
+\Delta t_{irriducibile}=\Delta t_{Cavo}+\Delta t_{Dual\ Timer}=2ns+(1.6\pm 0.5)ns
+\end{equation}
+
+
+
+
+
+
+
+
+
+
+
+\section{Curve di discriminazione}
+\label{sec:discrimination}
+Come già accennato nei precedenti paragrafi, per trasformare i segnali analogici forniti dai fotomoltiplicatori in segnali digitali standard NIM si è fatto uso moduli detti discriminatori. Questi dispositivi permettono di selezionare tutti i segnali che superano una certa soglia di discriminazione trasformandoli in impulsi di onda quadra, e di eliminare tutto il rumore al di sotto di essa. Il threshold di tali dispositivi è impostabile e deve essere scelto con cura; infatti se questo è troppo elevato in valore assoluto si rischia di rigettare degli eventi di segnale, laddove se è troppo basso il rumore non viene eliminato correttamente e fornisce degli hit laddove non ci sarebbero.\\
+ Per selezionare la soglia di discriminazione corretta per ognuna delle triplette di PM si è adottato un procedimento del tutto analogo a quello descritto nella Sezione \ref{sec:tension}: si è lasciato intatto il threshold di una tripletta di PM (-800mV), andando a variare in maniera progressiva quella di un altro e si è quindi usato un contatore per misurare numero di coincidenze ottenute per ogni valore in un certo intervallo di tempo.\\
+  La curva che si ottiene è detta di discriminazione e presenta una discesa ripida (gli eventi diminuiscono man mano che sielimina il rumore), seguita da un plateau e infine da un ulteriore discesa (oltre un certo valore gli eventi di segnale incominciano a essere scartati). Se ne riporta quella relativa al PM in Figura \ref{fig:discrimination}, mentre tutte le altre sono lasciate in Appendice.\\
+  \begin{figure}[h]
+  	\begin{center}
+  		\includegraphics[width=0.6\textwidth]{./SCHEMI/Tension.png} % Include the image placeholder.png
+  		\caption{\small Geometrical rapresentation of an object of dimension X at a distance u from a thin lens, and its projected image x.}
+  		\label{fig:discrimination}
+  	\end{center}
+  \end{figure}
+
+ I theshold sono stati selezionati andando a misurare il valore medio del plateau e sono riportati in Tabella \ref{fig:circ-delay}.
+  \begin{table}[h]                        %ambiente tabella
+  	%(serve per avere la legenda)
+  	\begin{center}                          %centra nella pagina la tabella
+  		\begin{tabular}{r|c|c}                  %tre colonne con righe verticali
+  			%   prodotte con |
+  			\hline \hline                           %inserisce due righe orizzontali
+  			$(1,1)$ & $(1,2)$ & $(1,3)$\\           %& separa le colonne e con
+  			\hline                                  %inserisce una riga orizzontale
+  			$(2,1)$ & $(2,2)$ & $(2,3)$\\           %  \\ va a capo
+  			\hline                                  %inserisce una riga orizzontale
+  			$(3,1)$ & $(3,2)$ & $(3,3)$\\
+  			\hline \hline                           %inserisce due righe orizzontali
+  		\end{tabular}
+  		\caption{Tabella contenente i valori stimati dei threshold}
+  		\label{tab:discrimination}
+  	\end{center}
+  \end{table}
+\\ Il circuito utilizzato è concettualmente identico a quello in Figura, con la sola aggiunta di svariati canali di FAN I/O che hanno permesso di effettuare le operazioni su tutti i PM in parallelo.
+
+
+
+
+\section{Energia depositata negli scintillatori}
+
+L'apparato di rivelazione utilizzato consiste di scintillatori plastici sottili. Attendiamo che l'energia persa dalle particelle che attraversano tale apparato segua una distribuzione di Landau.\\
+Mentre per assorbitori relativamente spessi è comune osservare una distribuzione dell'energia trasferita essenzialmente gaussiana, nel caso di assorbitori sottili il valor medio della distribuzione è più grande del valore più probabile. Qualitativamente possiamo spiegare questo
+scostamento osservando che al diminuire dello spessore di materiale bersaglio, calando il numero medio di urti, cresce la frequenza di eventi con grande trasferimento di energia della particella in una singola collisione. Tali eventi (knock on collisions) sono rari ma sufficienti ad
+originare la coda asimmetrica tipica della distribuzione di Landau.
+Per grandi spessori, viceversa, l'alto numero medio di urti permette di introdurre l'approssimazione dovuta al Teorema del Limite Centrale. In altri termini, eventi a grande trasferimento di energia sono sempre presenti ma statisticamente sommersi dagli altri.\\
+Per verificare il corretto funzionamento dei rivelatori si è quindi deciso di misurare la quantità di carica prodotta nei fotomoltiplicatori che è proporzionale all'energia depositata ed è data da:
+\begin{equation}
+Q=N_{\gamma}\times CE \times QE \times G
+\end{equation}
+dove:
+\begin{itemize}
+	\item $N_{\gamma}$ = numero di fotoni prodotti dalla particella nello scintillatore;
+	\item CE = collection efficiency = percentuale di fotoni raccolti nello scintillatore che arrivano al fotocatodo ($\sim 80-90 \%$);
+	\item QE = quantum efficiency = percentuale di fotoni che producono un foto-elettrone sul fotocatodo;
+  \item G = gain = numero di elettroni prodotti alla fine della catena di moltiplicazione dei dinodi del PM per singolo fotoelettrone.
+\end{itemize}
+Il circuito utilizzato per effettuare questa misura è schematizzato in Figura \ref{fig:circ-energy}. Il trigger per la presa dati è costituito da un $\mu-passante$, ovvero un muone che non viene catturato dalla lastra di ferro per poi decadere, ma vi passa attraverso. Ciò si traduce in un segnale in coincidenza temporale sui tre scintillatori dei semi-piani anteriori:
+\begin{equation}
+T (\mu-passante)=(L00 \lor R00) \land (L10 \lor R10) \land (L20 \lor R20)
+\end{equation}
+La carica depositata sui tre scintillatori è misurata tramite un modulo CaMAC CIA (Charge Integrating ADC) il quale integra il segnale analogico in ingresso per un certo intervallo di tempo definito dalla lunghezza del segnale digitale sul GATE. Il segnale del Trigger viene dato in entrata a tre dual-timer:
+\begin{enumerate}
+	\item il primo viene allargato fino a 400ns e usato come gate di presa di segnale del modulo CIA;
+	\item il secondo viene allargato fino a 1s e usato come veto dell'AND logico del trigger per dare il tempo al CIA di processare correttamente i segnali;
+	\item dal terzo si prende l'end-marker allargato tramite un LED e ritardato di 1000 ns in modo che si collochi necessariamente dopo tutti i segnali e dopo il gate, ma comunque all'interno del tempo morto del veto. Questo segnale viene dato in input a uno dei canali del CIA (channel 7) in modo da risultare attivo, ma senza misurare nulla: ciò permette di fare una stima del rumore elettronico introdotto nel circuito.
+\end{enumerate}
+
+Gli altri canali del CIA sono riempiti dai segnali provenienti dai PM Left e Right degli scintillatori (channels 1-6), che vengono leggermente ritardati tramite un delay per compensare i ritardi introdotti nell'elettronica, o sono lasciati vuoti in modo da poter fare una stima del rumore termico presente nel circuito (channels 8-16).\\
+Essendo il CIA un modulo CAMAC i dati sono stati acquisiti tramite un semplice programma in LabView. I risultati dell'analisi dei dati così raccolti forniscono,come ci si poteva aspettare, delle distribuzioni di Landau (vedi Figura \ref{energy} a titolo di esempio e tutte le curve in Appendice). La stima di rumore elettronico e termico è effettuata in Appendice.
+
+\begin{figure}[H]
+ 	\begin{center}
+ 		\includegraphics[width=0.6\textwidth]{./SCHEMI/Energy.png} % Include the image placeholder.png
+ 		\caption{\small Rappresentazione schematica del circuito utilizzato per determinare l'energia depositata nei PM da un muone passante}
+	 	\label{fig:circ-energy}
+ 	\end{center}
+ \end{figure}
+
+ \begin{figure}[H]
+ 	\begin{center}
+ 		\includegraphics[width=0.6\textwidth]{./SCHEMI/Tension.png} % Include the image placeholder.png
+ 		\caption{\small Curve dell'energia depositata nel PM}
+ 	\label{energy}
+ 	\end{center}
+
+ \end{figure}
+
+ \begin{figure}[H]
+   \centering
+   \includegraphics[width=0.8\textwidth]{plots/energy_L00.jpg}
+   \caption{Distribuzione della carica raccolta da L00. }
+   \label{fig:L00_energy}
+ \end{figure}
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+
+\chapter{Misura della vita media del Muone}
+Per poter misurare la vita media dei muoni provenienti dai raggi cosmici è necessario costruire un circuito di trigger che permetta di selezionare eventi di tipo $\mu$-stop, ovvero tali per cui le particelle $\mu$ si fermano nella lastra di ferro presente tra i piani 1 e 2 del rivelatore. Questo segnale fungerà da start per un modulo TDC (time to digital converter), che grazie al suo clock interno incomincerà a misurare il tempo trascorso fino all'arrivo di un segnale di stop rappresentato dal passaggio di un elettrone di decadimento su uno qualsiasi degli scintillatori.
+\section{Il Trigger}
+\label{sec:trigger}
+Come già accennato, il trigger che vogliamo creare deve essere in grado di selezionare eventi di tipo $\mu$-stop in cui il muone passa attraverso i primi due piani di scintillazione, per poi fermarsi nella sottile lastra di ferro tra il piano 1 e 2, dove infine decade. questo significa che vorremo una coincidenza di segnale tra il piano 0 e il piano 1 e un'assenza sul piano 2.\\
+ In termini di funzioni logiche tale richiesta si può tradurre come:
+\begin{equation}
+\begin{split}
+T=P_0 \land P_1 \land \overline{P_2}
+\\
+con\\
+P_0=[(L00\land R00)\lor (L01\land R01)]\\
+P_1=[(L10\land R10)\lor (L11\land R11)]\\
+P_2=[(L20\land R20)\lor (L21\land R21)]
+\end{split}
+\end{equation}
+\\
+Il circuito equivalente è riportato in Figura \ref{fig:circ-trigger}.
+
+\begin{figure}[h]
+	\begin{center}
+		\includegraphics[width=0.9\textwidth]{./SCHEMI/TriggerMu.png} % Include the image placeholder.png
+		\caption{\small Rappresentazione schematica del circuito di trigger di $\mu$-stop}
+		\label{fig:circ-trigger}
+	\end{center}
+\end{figure}
+\clearpage
+\section{Calibrazione dei TDC}
+Il TDC (Time to Digital Converter ) è un modulo di elettronica CAMAC (Computer Automated Measurement And Control ) che permette di misurare intervalli temporali. Esso è dotato di un common start che fa partire il suo cronometro interno e di 8 canali di stop che interrompono il conteggio. Essendo un modulo CAMAC il TDC può quindi essere associato a un opportuno software che converta i conteggi del clock in misure di tempo.
+\\
+I tempi misurati dalla TDC sono in unità standard, che devono poi essere tradotte in secondi tramite una costante di conversione. Essa è riportata dal costruttore per ogni canale, ma può variare col tempo e l'usura. E' quindi opportuno trovare le costanti attuali misurando degli intervalli temporali noti tramite i moduli TDC, producendo una retta di calibrazione (I grafici sono lasciati in Appendice). Eseguendo quindi un fit di tali rette sarà possibile avere una stima dei fattori di :
+\begin{equation}
+y=a+bt
+\end{equation}
+Dove y è il tempo misurato in arbitrary units, t è il valore noto in secondi, a è il valore di off-set e b è il fattore di conversione.
+\\
+Gli intervalli di tempo dal valore noto possono essere ottenuti sfruttando il segnale artificiale  di un modulo Dual Timer (vedi Figura \ref{fig:circ-calibrazione}), fissato tramite un oscilloscopio e fatto partire tramite la sua levetta di innesco. Tale segnale, una volta allargato tramite un LED viene diviso e , da un lato rimandato al dual timer stesso come start , in modo da mandarlo in loop ed effettuare più misure in successione, dall'altro viene portato in un FAN I/O in modo da essere ulteriormente diviso in quattro. Avere più misure per ogni intervallo di tempo è infatti necessario per poter associare un errore statistico ai tempi misurati dalla TDC, laddove l'errore sui tempi noti è associato all'imprecisione nella misura del ritardo effettuata con l'oscilloscopio.\\
+Dei quattro canali in uscita dal FAN I/O, due sono usati come common start per i TDC, uno è mandato all'oscilloscopio per la calibrazione e l'ultimo in un ulteriore modulo Dual Timer che permetterà di regolare la durata t del segnale noto. Il segnale in uscita di Endmarker viene infatti standardizzato NIM da un LED e diviso tramite 2 FAN I/O in 16 canali di cui 15 vanno agli stop delle TDC e uno all'oscilloscopio per la calibrazione dei segnali "noti".\\
+I valori delle costanti di conversione ottenute tramite i fit sono riportati in Tabella \ref{tab:calibrazione}. Una volta effettuate le misure si è verificato che i canali più performanti (ovvero quelli che venivano saturati più tardi) risultavano essere i canali 1,2,3,4 della TDC1 e 3,4,5,6 della TDC2, che sono quindi stati utilizzati nella misura finale.
+
+\begin{table}[h]                        %ambiente tabella
+	%(serve per avere la legenda)
+	\begin{center}                          %centra nella pagina la tabella
+		\begin{tabular}{r|c|c}                  %tre colonne con righe verticali
+			%   prodotte con |
+			\hline \hline                           %inserisce due righe orizzontali
+			$(1,1)$ & $(1,2)$ & $(1,3)$\\           %& separa le colonne e con
+			\hline                                  %inserisce una riga orizzontale
+			$(2,1)$ & $(2,2)$ & $(2,3)$\\           %  \\ va a capo
+			\hline                                  %inserisce una riga orizzontale
+			$(3,1)$ & $(3,2)$ & $(3,3)$\\
+			\hline \hline                           %inserisce due righe orizzontali
+		\end{tabular}
+		\caption[legenda elenco tabelle]{legenda tabella}\label{tab:calibrazione}
+	\end{center}
+\end{table}
+
+
+\begin{figure} [h!]
+	\begin{center}
+		\includegraphics[width=0.7\textwidth]{./SCHEMI/Calibrazione.png} % Include the image placeholder.png
+		\caption{\small Geometrical rapresentation of an object of dimension X at a distance u from a thin lens, and its projected image x.}
+		\label{fig:circ-calibrazione}
+	\end{center}
+\end{figure}
+\clearpage
+\section{Circuito di Acquisizione}
+\label{sec:acquisizione}
+Una volta selezionati gli eventi di $\mu$-stop tramite il trigger discusso in sezione, è necessario misurare l'intervallo di tempo trascorso
+fino all'arrivo del segnale generato dall'elettrone, prodotto dal decadimento del muone.
+Considerato che il tempo di vita media del muone è di circa 2.2 $\mu s$ è necessario che il circuito di acquisizione sia in grado di misurare intervalli temporali dell'ordine della decina di $\mu s$. A
+tal fine sono stati utilizzati due moduli CAMAC TDC (TDC1 e TDC2) con fondoscala nominale di 5 $\mu s$ ciascuno.\\
+Lo schema del circuito utilizzato per l'acquisizione è riportato in Figura \ref{fig:circ-acquisizione}. Il segnale proveniente dal trigger viene usato come common start della TDC1 e , una volta ritardato di 4,7$\mu s$ che corrisponde al valore di saturazione reale dei canali del modulo, come common start della TDC2, laddove gli stop sono dati da segnali provenienti dai singoli scintillatori (corrispondenti al passaggio di un $e^-$ di decadimento). Si noti che anche il segnale di common start della TDC 1 è in realtà leggermente ritardato (30 ns). Quest'accorgenza viene presa affinché i segnali formatisi sui canali P0, P1 e P2 durante un evento $\mu$-stop, arrivino sempre dopo al segnale di trigger e non producano dei falsi stop prematuri che porterebbero a una sottostima della vita media.\\
+Il segnale ritardato usato come common start per la TDC2 viene inoltre sfruttato come stop per la TDC1 in modo da poter monitorare nel tempo la differenza temporale tra le due TDC, e , una volta ritardato di altri 1,6 $\mu s$, come fake stop della seconda, in modo da essere sicuri che il bit LAM (look at me) del modulo venga acceso e la lettura sia effettuata.\\
+Uno dei segnali proveniente dai canali di uscita del trigger viene infine ritardato di 100 $\mu s$ e utilizzato come veto . Ciò è necessario per fornire alle TDC il tempo di processare correttamente la misura di tempo. Il loro "tempo morto " è infatti corrispondente a circa 22 $\mu s$ ed è buona norma imporre un veto pari almeno al doppio.
+\clearpage
+
+\begin{figure}[h!]
+	\begin{center}
+		\includegraphics[width=1\textwidth]{./SCHEMI/FINAL.png} % Include the image placeholder.png
+		\caption{\small Geometrical rapresentation of an object of dimension X at a distance u from a thin lens, and its projected image x.}
+		\label{fig:circ-acquisizione}
+	\end{center}
+\end{figure}
+
+\section{Analisi Dati}
+L'acquisizione dei dati si è svolta su un arco temporale di circa quattro giorni, per un totale di 1014917 eventi collezionati. Il processo di analisi consta principalmente dei due seguenti punti:
+\begin{itemize}
+  \item applicazione di tagli al fine di eliminare il fondo;
+  \item fit della distribuzione dei tempi alla funzione nota, al fine di inferire la vita media del muone e altri parametri secondari dell'equazione.
+\end{itemize}
+Istogrammi e fit sono stati realizzati rispettivamente con le librerie MatPlotLib e SciPy di Python. \\
+La funzione usata come modello per la stima dei parametri considera una legge esponenziale per il decadimento del muone e un fondo constante, dovuto al passaggio accidentale (e raro) di un secondo muone che viene scambiato per un elettrone del decadimento:
+\begin{equation}
+  f(t;\tau_{\mu},N_{sig},N_{bkg}) = N_{sig} \cdot \exp{(-t / \tau_{\mu})} + N_{bkg}
+  \label{eqn:simple_expo}
+\end{equation}
+I tagli utilizzati sono stati i seguenti:
+\begin{enumerate}[label=(\alph*)]
+  \item eventi provenienti dal piano 1 in coincidienza con il piano 0, escludendo le coincidenze con il piano 2; con questo taglio s'intende conteggiare gli elettroni che dal ferro risalgono, passando per i piani 1 e 0;
+  \item eventi provenienti dal piano 2, escludendo le coincidenze con i piani 0 e 1; questo taglio rappresenta gli elettroni che dal ferro scendono passando per il piano 2;
+  \item unione dei due tagli precedenti, così da conteggiare, almeno nelle intenzioni, tutti gli elettroni emessi;
+  \item stesso taglio del punto precedente, ma con in più la condizione che il segnale sul piano 1 sia antecedente rispetto a quello sul piano 0, così da scartare muoni che potrebbero essere scambiati per elettroni di decadimento.
+\end{enumerate}
+
+\begin{table}[!hbt]
+  \centering
+  \begin{tabular}{c|c}
+    \hline
+    \hline
+    taglio & $\tau_{\mu}$ ($\mu$s) \\
+    \hline
+    \hline
+    a & $2.160 \pm 0.363$ \\
+    b & $2.130 \pm 0.286$ \\
+    c & $2.154 \pm 0.209$ \\
+    d & $2.123 \pm 0.291$ \\
+    \hline
+    \hline
+  \end{tabular}
+  \caption{Risultati del fit.}
+  \label{tab:res_fit}
+\end{table}
+
+In tutti e quattro i casi il fit è stato eseguito su eventi rivelati a tempi maggiori di 0.9 $\mu$s dallo START del trigger, così da escludere la grande componente di fondo presente a tempi brevi. Le curve dei fit, sovrapposte alle distribuzioni dei tempi, sono riportate in Fig. \ref{fig:taglioa}, \ref{fig:tagliob}, \ref{fig:taglioc} e \ref{fig:taglioa}. In Tab. \ref{tab:res_fit} sono invece riportati i valori trovati per la vita media del muone ($\tau_{\mu}$) in ogni taglio.
+
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=.8\textwidth]{plots/piano0&1.png}
+  \caption{Taglio (a)}
+  \label{fig:taglioa}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=.8\textwidth]{plots/piano2.png}
+  \caption{Taglio (b)}
+  \label{fig:tagliob}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=.8\textwidth]{plots/soft_nopiano1.png}
+  \caption{Taglio (c)}
+  \label{fig:taglioc}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=.8\textwidth]{plots/hard_nopiano1.png}
+  \caption{Taglio (d)}
+  \label{fig:tagliod}
+\end{figure}
+
+
+\subsection{Cattura dei muoni negativi.}
+Ci si propone ora di stimare un effetto implicitamente trascurato nelle sezioni precedenti, ovvero che la vita media dei muoni negativi nella materia differisce dalla stessa quantità misurata nel vuoto. Il motivo è l'interazione elettromagnetica tra i $\mu^{-}$ e i nuclei atomici.
+\paragraph{Cattura muonica}
+Quando entrano in un materiale, i $\mu^{-}$ vengono rallentati e formano atomi muonici, ovvero atomi nei quali un elettrone è rimpiazzato da un muone negativo. Una volta formato l'atomo muonico, il $\mu^{-}$ può decadere come nel vuoto oppure essere catturato dal nucleo, con conseguente emissione di neutroni o particelle cariche.
+
+La vita media del muone negativo in un atomo muonico è dunque determinata da questi due processi concorrenti. Detti $\tau^{-}_{decay}$ la vita media del $\mu^{-}$ nel vuoto e $\tau^{-}_{capture}$ quella nella cattura neutronica, è possibile scrivere la vita media totale come:
+\begin{equation}
+  \frac{1}{\tau_{A}} = \frac{1}{\tau^{-}_{decay}} + \frac{1}{\tau^{-}_{capture}}
+  \label{eqn:neg_muon_total}
+\end{equation}
+
+Essa, nella sua componente dovuta alla cattura, dipende fortemente dal numero atomico $Z$ del materiale. Nel caso del ferro ($Z=26$) si hanno:
+\begin{equation}
+  \tau^{-}_{capture}=0.22 \mu s
+  \label{eqn:tau_cap_iron}
+\end{equation}
+
+\begin{equation}
+  \tau_{A}=0.20 \mu s
+  \label{eqn:tau_tot_iron}
+\end{equation}
+Si sottolinea che negli esperimenti è sempre la $\tau_{A}$ ad essere misurata.
+
+\paragraph{Misura e risultati.}
+In fase di analisi dati, è possibile tenere conto del diverso contributo dei $\mu^{-}$ inserendo nel modello un ulteriore termine esponenziale. Si avrà:
+
+\begin{equation}
+  f(t;\tau_{\mu},\tau_{A},N_{sig},N_{A},N_{bkg}) = N_{sig}\exp{(-t/\tau_{\mu})} + N_{A}\exp{(-t/\tau_{A})} + N_{bkg}
+  \label{eqn:complex_expo}
+\end{equation}
+
+Il taglio imposto è stato lo stesso del punto (c) del paragrafo precedente. Sono stati eseguiti due tipi di fit: nel primo sia $\tau_{\mu}$ che $\tau_{A}$ sono liberi, mentre nel secondo si è fissato $\tau_{\mu}=2.197 \mu$s come riportato in \cite{pdg}. I valori stimati per $\tau_{A}$ e $\tau^{-}_{capture}$, dove quest'ultimo è trovato applicando \ref{eqn:neg_muon_total}, sono riportati in Tabella \ref{tab:negative_muon}. Istogrammi e plot sono invece riportati in Fig. (\ref{fig:soft_doubleexp}) e (\ref{fig:soft_doubleexp_fixed}).
+
+\begin{table}[H]
+  \centering
+  \begin{tabular}{c|c|c|c}
+    \hline
+    \hline
+    Fit & $\tau_{\mu}$ ($\mu$s) & $\tau_{A}$ ($\mu$s) & $\tau^{-}_{capture}$ ($\mu$s) \\
+    \hline
+    \hline
+    $\tau_{\mu}$ libero & $2.130 \pm 0.375$ & $0.327 \pm 0.094$ & $0.386 \pm 0.071$\\
+    $\tau_{\mu}$ fissato & & $0.333 \pm 0.061$ & $0.393 \pm 0.011$ \\
+    \hline
+    \hline
+  \end{tabular}
+  \caption{Valori fittati fittando i dati ad un modello che considera anche la vita media dei muoni negativi.}
+  \label{tab:negative_muon}
+\end{table}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=.8\textwidth]{plots/soft_doubleexp.png}
+  \caption{}
+  \label{fig:soft_doubleexp}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=.8\textwidth]{plots/soft_doubleexp_fixed.png}
+  \caption{}
+  \label{fig:soft_doubleexp_fixed}
+\end{figure}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%per fare le conclusioni
+\chapter*{Conclusioni}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%imposta l'intestazione di pagina
+%\rhead[\fancyplain{}{\bfseries
+%CONCLUSIONI}]{\fancyplain{}{\bfseries\thepage}}
+%\lhead[\fancyplain{}{\bfseries\thepage}]{\fancyplain{}{\bfseries
+%CONCLUSIONI}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%aggiunge la voce Conclusioni
+                                        %   nell'indice
+\addcontentsline{toc}{chapter}{Conclusioni} Queste sono le
+conclusioni.\\
+In queste conclusioni voglio fare un riferimento alla
+bibliografia: questo \`e il mio riferimento \cite{K3,K4}.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%imposta l'intestazione di pagina
+%\renewcommand{\chaptermark}[1]{\markright{\thechapter \ #1}{}}
+%\lhead[\fancyplain{}{\bfseries\thepage}]{\fancyplain{}{\bfseries\rightmark}}
+
+
+
+\end{document}
