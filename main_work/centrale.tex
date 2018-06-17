@@ -28,7 +28,6 @@
 %
 \begin{document}
 
-
 \chapter{Misure Preliminari}                %crea il capitolo
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%imposta l'intestazione di pagina
 %\lhead[\fancyplain{}{\bfseries\thepage}]{\fancyplain{}{\bfseries\rightmark}}
@@ -60,14 +59,15 @@ Per la prima delle misure preliminari abbiamo dovuto stimare la tensione di lavo
  	\end{center}
  \end{table}
 
-  \begin{figure}[h]
+  \begin{figure}[H]
   	\begin{center}
   		\includegraphics[width=0.6\textwidth]{./SCHEMI/Tension.png} % Include the image placeholder.png
   		\caption{\small Rappresentazione schematica del circuito utilizzato per la calibrazione della tensione di lavoro e delle soglie di discriminazione dei fotomoltiplicatori}
   		\label{fig:circ-tens}
   	\end{center}
   \end{figure}
-   \begin{figure}
+
+  \begin{figure}[H]
    	\begin{center}
    		\includegraphics[width=0.6\textwidth]{./SCHEMI/Tension.png} % Include the image placeholder.png
    		\caption{\small Curva di calibrazione della tensione data dal numero di coincidenze di segnale tra i PM L00B e R00B al variare della tensione applicata al secondo, con quella del primo lasciata costante}
@@ -78,10 +78,6 @@ Per la prima delle misure preliminari abbiamo dovuto stimare la tensione di lavo
   Il circuito realizzato per eseguire le misure è invece schematizzato in Figura \ref{fig:circ-tens} e consiste di due generatori di tensione variabili (CAEN Mod.470) che alimentano i due PM. Il segnale analogico prodotto da questi viene quindi fatto passare attraverso dei discriminatori LED (CAEN Mod.840) che lo trasformano in un segnale digitale standard NIM costituito da un impulso di onda quadra larga 40ns e profonda -800 mV. I segnali digitalizzati dei due PM sono quindi collegati tramite un modulo logico AND (CAEN Mod 405) il cui output darà il segnale di coincidenza; il numero  totale di corrispondenze è infine misurato tramite un modulo counter, con il quale si è impostato un tempo di presa dati pari a 90s. Sebbene non sia rappresentato in figura, i conteggi sono stati effettuati in maniera analoga anche  per i singoli canali, che sono stati sdoppiati utilizzando dei moduli FAN I/O, e collegati individualmente a degli ulteriori moduli counter.\\
 
 
-
-
-
-
 \section{Curve di ritardo}
 \label{sec:delay}
 Il trigger definitivo usato per la misura della vita media del muone (vedi Sezione \ref{sec:trigger}) richiede l'utilizzo di scintillatori su semipiani successivi che vadano a misurare dei segnali in coincidenza dovuti al passaggio della medesima particella.\\
@@ -89,7 +85,8 @@ Il trigger definitivo usato per la misura della vita media del muone (vedi Sezio
  Risulta necessario, quindi, conoscere con una certa precisione quale sia il ritardo massimo oltre il quale due segnali in coincidenza non vengono più interpretati come tali. Ci si aspetta che questo risulti approssimativamente pari alla larghezza dell'onda quadra di un segnale NIM, che corrisponde a 40 ns.\\
  Per effettuare tale stima, si considerano due  PM corrispondenti a due semipiani successivi, e si rivelano i muoni passanti ritardando il segnale di uno e lasciando intatto quello dell'altro e viceversa. Introducendo ritardi via via più grandi e misurando il numero di coincidenze osservate si ottengono quindi quelle che vengono definite curve di ritardo. Nello specifico in Figura \ref{fig:delay} si possono osservare quelle ottenute per i PM R00B e R10B.\\
 Idealmente tali curve dovrebbero avere una forma a gradino con il drop in corrispondenza del valore di ritardo massimo oltre il quale si perdono le coincidenze. In realtà l'andamento è decisamente meno netto a causa di effetti introdotti dall'elettronica, quali il time-walk (Variazioni nella formazione del segnale digitale dovuti a differenze nelle ampiezze dei segnali analogici)  e il jitter (inconsistenze introdotte nel discriminatore a causa del rumore). E' comunque possibile ottenere delle stime per i massimi valori di ritardo, che risultano compatibili col valore atteso di 40ns e sono state riportate in Tabella \ref{tab:delay}.
-  \begin{table}[h]                        %ambiente tabella
+
+  \begin{table}[H]                        %ambiente tabella
   	%(serve per avere la legenda)
   	\begin{center}                          %centra nella pagina la tabella
   		\begin{tabular}{r|c|c}                  %tre colonne con righe verticali
@@ -106,13 +103,13 @@ Idealmente tali curve dovrebbero avere una forma a gradino con il drop in corris
   		\label{tab:delay}
   	\end{center}
   \end{table}
-  \\
+
 Si può osservare  inoltre che le due curve risultano asimmetriche. Questo avviene per via del fatto che il tempo di volo della particella introduce un fattore di ritardo asimmetrico sui due rivelatori: sul piano 1 lo aumenta, laddove sul piano 0 lo diminuisce. E' possibile sfruttare tale effetto per ottenere una stima del tempo di volo effettuando una semplice differenza tra la lunghezza dei due gradini:
  \begin{equation}
  t_{flight}=\Delta t_1-\Delta t_2
  \end{equation}
  Si noti inoltre che le due curve non raggiungono mai lo 0 a causa delle coincidenze introdotte dal rumore.
-  \begin{figure}[h]
+  \begin{figure}[H]
   	\begin{center}
   		\includegraphics[width=0.7\textwidth]{./SCHEMI/RITARDO.png} % Include the image placeholder.png
   		\caption{\small Rappresentazione schematica del circuito utilizzato per determinafre le curve di ritardo per i PM  R00B e R10B}
@@ -120,7 +117,7 @@ Si può osservare  inoltre che le due curve risultano asimmetriche. Questo avvien
   	\end{center}
   \end{figure}
 
- \begin{figure}[h]
+ \begin{figure}[H]
  	\begin{center}
  		\includegraphics[width=0.6\textwidth]{./SCHEMI/Tension.png} % Include the image placeholder.png
  		\caption{\small Curve di discriminazione per i PM R00B e R10B, poste in opposizione una accanto all'altra}
@@ -134,21 +131,13 @@ In Figura \ref{fig:circ-delay} si è riportato lo schema corrispondente al circui
 \end{equation}
 
 
-
-
-
-
-
-
-
-
-
 \section{Curve di discriminazione}
 \label{sec:discrimination}
 Come già accennato nei precedenti paragrafi, per trasformare i segnali analogici forniti dai fotomoltiplicatori in segnali digitali standard NIM si è fatto uso di moduli detti discriminatori. Questi dispositivi permettono di selezionare tutti i segnali che superano una certa soglia di discriminazione trasformandoli in impulsi di onda quadra, e di eliminare tutto il rumore al di sotto di essa. Il threshold di tali dispositivi è impostabile e deve essere scelto con cura; infatti se questo è troppo elevato in valore assoluto si rischia di rigettare degli eventi di segnale, laddove se è troppo basso il rumore non viene eliminato correttamente e fornisce degli hit laddove non ci sarebbero.\\
  Per selezionare la soglia di discriminazione corretta per ognuna delle triplette di PM si è adottato un procedimento del tutto analogo a quello descritto nella Sezione \ref{sec:tension}: si è lasciato intatto il threshold di una tripletta di PM (-800mV), andando a variare in maniera progressiva quella di un altro e si è quindi usato un contatore per misurare numero di coincidenze ottenute per ogni valore in un certo intervallo di tempo.\\
   La curva che si ottiene è detta di discriminazione e presenta una discesa ripida (gli eventi diminuiscono man mano che sielimina il rumore), seguita da un plateau e infine da un ulteriore discesa (oltre un certo valore gli eventi di segnale incominciano a essere scartati). Se ne riporta quella relativa al PM in Figura \ref{fig:discrimination}, mentre tutte le altre sono lasciate in Appendice.\\
-  \begin{figure}[h]
+
+  \begin{figure}[H]
   	\begin{center}
   		\includegraphics[width=0.6\textwidth]{./SCHEMI/Tension.png} % Include the image placeholder.png
   		\caption{\small Geometrical rapresentation of an object of dimension X at a distance u from a thin lens, and its projected image x.}
@@ -157,7 +146,7 @@ Come già accennato nei precedenti paragrafi, per trasformare i segnali analogici
   \end{figure}
 
  I theshold sono stati selezionati andando a misurare il valore medio del plateau e sono riportati in Tabella \ref{fig:circ-delay}.
-  \begin{table}[h]                        %ambiente tabella
+  \begin{table}[H]                        %ambiente tabella
   	%(serve per avere la legenda)
   	\begin{center}                          %centra nella pagina la tabella
   		\begin{tabular}{r|c|c}                  %tre colonne con righe verticali
@@ -174,7 +163,8 @@ Come già accennato nei precedenti paragrafi, per trasformare i segnali analogici
   		\label{tab:discrimination}
   	\end{center}
   \end{table}
-\\ Il circuito utilizzato è concettualmente identico a quello in Figura, con la sola aggiunta di svariati canali di FAN I/O che hanno permesso di effettuare le operazioni su tutti i PM in parallelo.
+
+Il circuito utilizzato è concettualmente identico a quello in Figura, con la sola aggiunta di svariati canali di FAN I/O che hanno permesso di effettuare le operazioni su tutti i PM in parallelo.
 
 
 
@@ -235,15 +225,7 @@ Essendo il CIA un modulo CAMAC i dati sono stati acquisiti tramite un semplice p
    \label{fig:L00_energy}
  \end{figure}
 
-
-
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-
-
-
 
 
 \chapter{Misura della vita media del Muone}
@@ -265,7 +247,7 @@ P_2=[(L20\land R20)\lor (L21\land R21)]
 \\
 Il circuito equivalente è riportato in Figura \ref{fig:circ-trigger}.
 
-\begin{figure}[h]
+\begin{figure}[H]
 	\begin{center}
 		\includegraphics[width=0.9\textwidth]{./SCHEMI/TriggerMu.png} % Include the image placeholder.png
 		\caption{\small Rappresentazione schematica del circuito di trigger di $\mu$-stop}
@@ -286,7 +268,7 @@ Gli intervalli di tempo dal valore noto possono essere ottenuti sfruttando il se
 Dei quattro canali in uscita dal FAN I/O, due sono usati come common start per i TDC, uno è mandato all'oscilloscopio per la calibrazione e l'ultimo in un ulteriore modulo Dual Timer che permetterà di regolare la durata t del segnale noto. Il segnale in uscita di Endmarker viene infatti trasformato in standard NIM da un LED e diviso tramite 2 FAN I/O in 16 canali di cui 15 vanno agli stop delle TDC e uno all'oscilloscopio per la calibrazione dei segnali "noti".\\
 I valori delle costanti di conversione ottenute tramite i fit sono riportati in Tabella \ref{tab:calibrazione}. Una volta effettuate le misure si è verificato che i canali più performanti (ovvero quelli che venivano saturati più tardi) risultavano essere i canali 1,2,3,4 della TDC1 e 3,4,5,6 della TDC2, che sono quindi stati utilizzati nella misura finale.
 
-\begin{table}[h]                        %ambiente tabella
+\begin{table}[H]                        %ambiente tabella
 	%(serve per avere la legenda)
 	\begin{center}                          %centra nella pagina la tabella
 		\begin{tabular}{r|c|c}                  %tre colonne con righe verticali
@@ -304,7 +286,7 @@ I valori delle costanti di conversione ottenute tramite i fit sono riportati in 
 \end{table}
 
 
-\begin{figure} [h!]
+\begin{figure} [H]
 	\begin{center}
 		\includegraphics[width=0.7\textwidth]{./SCHEMI/Calibrazione.png} % Include the image placeholder.png
 		\caption{\small Geometrical rapresentation of an object of dimension X at a distance u from a thin lens, and its projected image x.}
@@ -323,7 +305,7 @@ Il segnale ritardato usato come common start per la TDC2 viene inoltre sfruttato
 Uno dei segnali proveniente dai canali di uscita del trigger viene infine ritardato di 100 $\mu s$ e utilizzato come veto . Ciò è necessario per fornire alle TDC il tempo di processare correttamente la misura di tempo. Il loro "tempo morto " è infatti corrispondente a circa 22 $\mu s$ ed è buona norma imporre un veto pari almeno al doppio.
 \clearpage
 
-\begin{figure}[h!]
+\begin{figure}[H]
 	\begin{center}
 		\includegraphics[width=1\textwidth]{./SCHEMI/FINAL.png} % Include the image placeholder.png
 		\caption{\small Geometrical rapresentation of an object of dimension X at a distance u from a thin lens, and its projected image x.}
@@ -375,28 +357,28 @@ In tutti e quattro i casi il fit è stato eseguito su eventi rivelati a tempi mag
 
 \begin{figure}[H]
   \centering
-  \includegraphics[width=.8\textwidth]{plots/piano0&1.png}
+  \includegraphics[width=\textwidth]{plots/piano0&1.png}
   \caption{Taglio (a)}
   \label{fig:taglioa}
 \end{figure}
 
 \begin{figure}[H]
   \centering
-  \includegraphics[width=.8\textwidth]{plots/piano2.png}
+  \includegraphics[width=\textwidth]{plots/piano2.png}
   \caption{Taglio (b)}
   \label{fig:tagliob}
 \end{figure}
 
 \begin{figure}[H]
   \centering
-  \includegraphics[width=.8\textwidth]{plots/soft_nopiano1.png}
+  \includegraphics[width=\textwidth]{plots/soft_nopiano1.png}
   \caption{Taglio (c)}
   \label{fig:taglioc}
 \end{figure}
 
 \begin{figure}[H]
   \centering
-  \includegraphics[width=.8\textwidth]{plots/hard_nopiano1.png}
+  \includegraphics[width=\textwidth]{plots/hard_nopiano1.png}
   \caption{Taglio (d)}
   \label{fig:tagliod}
 \end{figure}
@@ -454,20 +436,20 @@ Il taglio imposto è stato lo stesso del punto (c) del paragrafo precedente. Sono
 
 \begin{figure}[H]
   \centering
-  \includegraphics[width=.8\textwidth]{plots/soft_doubleexp.png}
+  \includegraphics[width=\textwidth]{plots/soft_doubleexp.png}
   \caption{}
   \label{fig:soft_doubleexp}
 \end{figure}
 
 \begin{figure}[H]
   \centering
-  \includegraphics[width=.8\textwidth]{plots/soft_doubleexp_fixed.png}
+  \includegraphics[width=\textwidth]{plots/soft_doubleexp_fixed.png}
   \caption{}
   \label{fig:soft_doubleexp_fixed}
 \end{figure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%per fare le conclusioni
-\chapter*{Conclusioni}
+\chapter{Conclusioni}
 \addcontentsline{toc}{chapter}{Conclusioni}
 
 Il procedimento di misura della vita media del muone può riassumersi in due parti principali:
