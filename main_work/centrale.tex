@@ -1,65 +1,38 @@
 %\documentclass[12pt,a4paper,openright,twoside]{report}
 \documentclass{standalone}
-
 \usepackage[latin1]{inputenc}
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%libreria per impostare il documento
 \usepackage{fancyhdr}
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%libreria per avere l'indentazione
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%   all'inizio dei capitoli, ...
 \usepackage{indentfirst}
-%
-%%%%%%%%%libreria per mostrare le etichette
-%\usepackage{showkeys}
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%libreria per inserire grafici
 \usepackage{graphicx}
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%libreria per utilizzare font
-                                        %   particolari ad esempio
-                                        %   \textsc{}
 \usepackage{newlfont}
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%librerie matematiche
 \usepackage{amssymb}
 \usepackage{amsmath}
 \usepackage{latexsym}
 \usepackage{amsthm}
 \usepackage{enumitem}
 \usepackage{subfig}
-% For better navigation
 \usepackage[hidelinks]{hyperref}
-% For forcing image position (by using [H])
 \usepackage{float}
+\usepackage{siunitx}
 
-%
-\oddsidemargin=30pt \evensidemargin=20pt%impostano i margini
-\hyphenation{sil-la-ba-zio-ne pa-ren-te-si}%serve per la sillabazione: tra parentesi
-					   %vanno inserite come nell'esempio le parole
-%					   %che latex non riesce a tagliare nel modo giusto andando a capo.
+%\oddsidemargin=30pt \evensidemargin=20pt%impostano i margini
+%\hyphenation{sil-la-ba-zio-ne pa-ren-te-si}%serve per la sillabazione: tra parentesi
 
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%comandi per l'impostazione
-                                        %   della pagina, vedi il manuale
-                                        %   della libreria fancyhdr
-                                        %   per ulteriori delucidazioni
-\pagestyle{fancy}\addtolength{\headwidth}{20pt}
-\renewcommand{\chaptermark}[1]{\markboth{\thechapter.\ #1}{}}
-\renewcommand{\sectionmark}[1]{\markright{\thesection \ #1}{}}
-\rhead[\fancyplain{}{\bfseries\leftmark}]{\fancyplain{}{\bfseries\thepage}}
-\cfoot{}
+%\pagestyle{fancy}\addtolength{\headwidth}{20pt}
+%\renewcommand{\chaptermark}[1]{\markboth{\thechapter.\ #1}{}}
+%\renewcommand{\sectionmark}[1]{\markright{\thesection \ #1}{}}
+%\rhead[\fancyplain{}{\bfseries\leftmark}]{\fancyplain{}{\bfseries\thepage}}
+%\cfoot{}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\linespread{1.3}                        %comando per impostare l'interlinea
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%definisce nuovi comandi
+%\linespread{1.3}                        %comando per impostare l'interlinea
 %
 \begin{document}
 
 
 \chapter{Misure Preliminari}                %crea il capitolo
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%imposta l'intestazione di pagina
-\lhead[\fancyplain{}{\bfseries\thepage}]{\fancyplain{}{\bfseries\rightmark}}
-\pagenumbering{arabic}
+%\lhead[\fancyplain{}{\bfseries\thepage}]{\fancyplain{}{\bfseries\rightmark}}
+%\pagenumbering{arabic}
 
 
 
@@ -495,21 +468,18 @@ Il taglio imposto è stato lo stesso del punto (c) del paragrafo precedente. Sono
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%per fare le conclusioni
 \chapter*{Conclusioni}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%imposta l'intestazione di pagina
-%\rhead[\fancyplain{}{\bfseries
-%CONCLUSIONI}]{\fancyplain{}{\bfseries\thepage}}
-%\lhead[\fancyplain{}{\bfseries\thepage}]{\fancyplain{}{\bfseries
-%CONCLUSIONI}}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%aggiunge la voce Conclusioni
-                                        %   nell'indice
-\addcontentsline{toc}{chapter}{Conclusioni} Queste sono le
-conclusioni.\\
-In queste conclusioni voglio fare un riferimento alla
-bibliografia: questo \`e il mio riferimento \cite{K3,K4}.
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%imposta l'intestazione di pagina
-%\renewcommand{\chaptermark}[1]{\markright{\thechapter \ #1}{}}
-%\lhead[\fancyplain{}{\bfseries\thepage}]{\fancyplain{}{\bfseries\rightmark}}
+\addcontentsline{toc}{chapter}{Conclusioni}
 
-
+Il procedimento di misura della vita media del muone può riassumersi in due parti principali:
+\begin{itemize}
+  \item nella prima si è configurato l'apparato sperimentale: è stato realizzato il circuito di trigger per la determinazione degli eventi di $\mu$-stop, sono state individuate le tensioni di discriminazione, valutati i ritardi sui segnali e infine calibrati i TDC;
+  \item nella seconda sono stati raccolti e analizzati i dati: l'analisi è stata effettuata determinando i tagli opportuni da applicare agli eventi raccolti negli istogrammi.
+\end{itemize}
+Il risultato finale ottenuto è di
+\begin{equation}
+  \tau_{\mu} = 2.123 \pm 0.291 \mu\text{s}
+  \label{final_res}
+\end{equation}
+consistente con quello riportato in letteratura \cite{pdg}.
 
 \end{document}
