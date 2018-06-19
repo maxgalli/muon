@@ -79,8 +79,9 @@ Per la prima delle misure preliminari abbiamo dovuto stimare la tensione di lavo
 
   \begin{figure}[H]
    	\begin{center}
-   		\includegraphics[width=0.6\textwidth]{./SCHEMI/Tension.png} % Include the image placeholder.png
-   		\caption{\small Curva di calibrazione della tensione data dal numero di coincidenze di segnale tra i PM L00B e R00B al variare della tensione applicata al secondo, con quella del primo lasciata costante}
+   		\includegraphics[width=0.8\textwidth]{./excel-plots/tension-L00c.jpg} % Include the image placeholder.png
+   		\includegraphics[width=0.8\textwidth]{./excel-plots/tension-R00c.jpg} % Include the image placeholder.png
+   		\caption{\small Curve di calibrazione della tensione data dal numero di coincidenze di segnale tra i PM L00B e R00B al variare della tensione applicata al secondo, con quella del primo lasciata costante (in basso) e viceversa (in alto)}
    		\label{fig:curva-tens}
    	\end{center}
    \end{figure}
@@ -126,14 +127,15 @@ Si pu\`o osservare  inoltre che le due curve risultano asimmetriche. Questo avvi
   		\label{fig:circ-delay}
   	\end{center}
   \end{figure}
-
- \begin{figure}[H]
- 	\begin{center}
- 		\includegraphics[width=0.6\textwidth]{./SCHEMI/Tension.png} % Include the image placeholder.png
- 		\caption{\small Curve di discriminazione per i PM R00B e R10B, poste in opposizione una accanto all'altra}
- 		\label{fig:delay}
- 	\end{center}
- \end{figure}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=.48\textwidth]{excel-plots/R00-delay-flipped.jpg}\quad\includegraphics[width=.48\textwidth]{excel-plots/R01-delay.jpg}
+	\caption{Curve di ritardo relative ai PM R00 (sinistra) e R01 (destra)}
+	\label{fig:delay}
+\end{figure}
+ 
+ 
+ 
  \clearpage
 In Figura \ref{fig:circ-delay} si \`e riportato lo schema corrispondente al circuito utilizzato in questa sezione. Come si pu\`o osservare si \`e fatto uso di due discriminatori per la digitalizzazione del segnale, oltre che di due moduli Dual Timer che permettono di introdurre dei ritardi variabili. Per il conteggio delle coincidenze si sono infine utilizzati due moduli logici in modalit\`a AND e due contatori impostati per 60s di presa dati. Si pu\`o notare che a causa dell'asimmetria dovuta all'utilizzo del Dual Timer su uno solo dei due percorsi, viene introdotto un ritardo irriducibile che pu\`o essere stimato:
 \begin{equation}
@@ -145,12 +147,12 @@ In Figura \ref{fig:circ-delay} si \`e riportato lo schema corrispondente al circ
 \label{sec:discrimination}
 Come gi\`a accennato nei precedenti paragrafi, per trasformare i segnali analogici forniti dai fotomoltiplicatori in segnali digitali standard NIM si \`e fatto uso di moduli detti discriminatori. Questi dispositivi permettono di selezionare tutti i segnali che superano una certa soglia di discriminazione trasformandoli in impulsi di onda quadra, e di eliminare tutto il rumore al di sotto di essa. Il threshold di tali dispositivi \`e impostabile e deve essere scelto con cura; infatti se questo \`e troppo elevato in valore assoluto si rischia di rigettare degli eventi di segnale, laddove se \`e troppo basso il rumore non viene eliminato correttamente e fornisce degli hit laddove non ci sarebbero.\\
  Per selezionare la soglia di discriminazione corretta per ognuna delle triplette di PM si \`e adottato un procedimento del tutto analogo a quello descritto nella Sezione \ref{sec:tension}: si \`e lasciato intatto il threshold di una tripletta di PM (-800mV), andando a variare in maniera progressiva quella di un altro e si \`e quindi usato un contatore per misurare numero di coincidenze ottenute per ogni valore in un certo intervallo di tempo.\\
-  La curva che si ottiene \`e detta di discriminazione e presenta una discesa ripida (gli eventi diminuiscono man mano che sielimina il rumore), seguita da un plateau e infine da un ulteriore discesa (oltre un certo valore gli eventi di segnale incominciano a essere scartati). Se ne riporta quella relativa al PM in Figura \ref{fig:discrimination}, mentre tutte le altre sono lasciate in Appendice.\\
+  La curva che si ottiene \`e detta di discriminazione e presenta una discesa ripida (gli eventi diminuiscono man mano che sielimina il rumore), seguita da un plateau e infine da un ulteriore discesa (oltre un certo valore gli eventi di segnale incominciano a essere scartati). Se ne riporta quella relativa al PM R00 in Figura \ref{fig:discrimination}, mentre tutte le altre sono lasciate in Appendice.\\
 
   \begin{figure}[H]
   	\begin{center}
-  		\includegraphics[width=0.6\textwidth]{./SCHEMI/Tension.png} % Include the image placeholder.png
-  		\caption{\small Geometrical rapresentation of an object of dimension X at a distance u from a thin lens, and its projected image x.}
+  		\includegraphics[width=0.6\textwidth]{./excel-plots/disc-R00.jpg} % Include the image placeholder.png
+  		\caption{\small Curva di discriminazione relativa al PM R00, collegato al canale 1 dei moduli logici AND}
   		\label{fig:discrimination}
   	\end{center}
   \end{figure}
@@ -209,28 +211,20 @@ La carica depositata sui tre scintillatori \`e misurata tramite un modulo CaMAC 
 \end{enumerate}
 
 Gli altri canali del CIA sono riempiti dai segnali provenienti dai PM Left e Right degli scintillatori (channels 1-6), che vengono leggermente ritardati tramite un delay per compensare i ritardi introdotti nell'elettronica, o sono lasciati vuoti in modo da poter fare una stima del rumore termico presente nel circuito (channels 8-16).\\
-Essendo il CIA un modulo CAMAC i dati sono stati acquisiti tramite un semplice programma in LabView. I risultati dell'analisi dei dati cos\`i raccolti forniscono,come ci si poteva aspettare, delle distribuzioni di Landau (vedi Figura \ref{energy} a titolo di esempio e tutte le curve in Appendice). La stima di rumore elettronico e termico \`e effettuata in Appendice.
+Essendo il CIA un modulo CAMAC i dati sono stati acquisiti tramite un semplice programma in LabView. I risultati dell'analisi dei dati cos\`i raccolti forniscono,come ci si poteva aspettare, delle distribuzioni di Landau (vedi Figura \ref{L00_energy} a titolo di esempio e tutte le curve in Appendice). La stima di rumore elettronico e termico \`e effettuata in Appendice.
 
-\begin{figure}[H]
+\begin{figure}[h]
  	\begin{center}
- 		\includegraphics[width=0.6\textwidth]{./SCHEMI/Energy.png} % Include the image placeholder.png
+ 		\includegraphics[width=0.5\textwidth]{./SCHEMI/Energy.png} % Include the image placeholder.png
  		\caption{\small Rappresentazione schematica del circuito utilizzato per determinare l'energia depositata nei PM da un muone passante}
 	 	\label{fig:circ-energy}
  	\end{center}
  \end{figure}
 
- \begin{figure}[H]
- 	\begin{center}
- 		\includegraphics[width=0.6\textwidth]{./SCHEMI/Tension.png} % Include the image placeholder.png
- 		\caption{\small Curve dell'energia depositata nel PM}
- 	\label{energy}
- 	\end{center}
-
- \end{figure}
 
  \begin{figure}[H]
    \centering
-   \includegraphics[width=0.8\textwidth]{plots/energy_L00.jpg}
+   \includegraphics[width=0.6\textwidth]{plots/energy_L00.jpg}
    \caption{Distribuzione della carica raccolta da L00. }
    \label{fig:L00_energy}
  \end{figure}
@@ -259,7 +253,7 @@ Il circuito equivalente \`e riportato in Figura \ref{fig:circ-trigger}.
 
 \begin{figure}[H]
 	\begin{center}
-		\includegraphics[width=0.9\textwidth]{./SCHEMI/TriggerMu.png} % Include the image placeholder.png
+		\includegraphics[width=0.8\textwidth]{./SCHEMI/TriggerMu.png} % Include the image placeholder.png
 		\caption{\small Rappresentazione schematica del circuito di trigger di $\mu$-stop}
 		\label{fig:circ-trigger}
 	\end{center}
@@ -298,7 +292,7 @@ I valori delle costanti di conversione ottenute tramite i fit sono riportati in 
 
 \begin{figure} [H]
 	\begin{center}
-		\includegraphics[width=0.7\textwidth]{./SCHEMI/Calibrazione.png} % Include the image placeholder.png
+		\includegraphics[width=0.8\textwidth]{./SCHEMI/Calibrazione.png} % Include the image placeholder.png
 		\caption{\small Curva di discriminazione del PM}
 		\label{fig:circ-calibrazione}
 	\end{center}
