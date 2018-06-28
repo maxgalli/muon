@@ -181,57 +181,6 @@ Il circuito utilizzato \`e concettualmente identico a quello in Figura, con la s
 
 
 
-\section{Energia depositata negli scintillatori}
-
-L'apparato di rivelazione utilizzato consiste di scintillatori plastici sottili. L'attesa \`e che l'energia persa dalle particelle che attraversano tale apparato segua una distribuzione di Landau.\\
-Mentre per assorbitori relativamente spessi \`e comune osservare una distribuzione dell'energia trasferita essenzialmente gaussiana, nel caso di assorbitori sottili il valor medio della distribuzione \`e pi\`u grande del valore pi\`u probabile. Qualitativamente possiamo spiegare questo
-scostamento osservando che al diminuire dello spessore di materiale bersaglio, calando il numero medio di urti, cresce la frequenza di eventi con grande trasferimento di energia della particella in una singola collisione. Tali eventi (knock on collisions) sono rari ma sufficienti ad
-originare la coda asimmetrica tipica della distribuzione di Landau.
-Per grandi spessori, viceversa, l'alto numero medio di urti permette di introdurre l'approssimazione dovuta al Teorema del Limite Centrale. In altri termini, eventi a grande trasferimento di energia sono sempre presenti ma statisticamente sommersi dagli altri.\\
-Per verificare il corretto funzionamento dei rivelatori si \`e quindi deciso di misurare la quantit\`a di carica prodotta nei fotomoltiplicatori che \`e proporzionale all'energia depositata ed \`e data da:
-\begin{equation}
-Q=N_{\gamma}\times CE \times QE \times G
-\end{equation}
-dove:
-\begin{itemize}
-	\item $N_{\gamma}$ = numero di fotoni prodotti dalla particella nello scintillatore;
-	\item CE = collection efficiency = percentuale di fotoni raccolti nello scintillatore che arrivano al fotocatodo ($\sim 80-90 \%$);
-	\item QE = quantum efficiency = percentuale di fotoni che producono un foto-elettrone sul fotocatodo;
-  \item G = gain = numero di elettroni prodotti alla fine della catena di moltiplicazione dei dinodi del PM per singolo fotoelettrone.
-\end{itemize}
-Il circuito utilizzato per effettuare questa misura \`e schematizzato in Figura \ref{fig:circ-energy}. Il trigger per la presa dati \`e costituito da un $\mu-passante$, ovvero un muone che non viene catturato dalla lastra di ferro per poi decadere, ma vi passa attraverso. Ci\`o si traduce in un segnale in coincidenza temporale sui tre scintillatori dei semi-piani anteriori:
-\begin{equation}
-T (\mu-passante)=(L00 \lor R00) \land (L10 \lor R10) \land (L20 \lor R20)
-\end{equation}
-La carica depositata sui tre scintillatori \`e misurata tramite un modulo CaMAC CIA (Charge Integrating ADC) il quale integra il segnale analogico in ingresso per un certo intervallo di tempo definito dalla lunghezza del segnale digitale sul GATE. Il segnale del Trigger viene dato in entrata a tre dual-timer:
-\begin{enumerate}
-	\item il primo viene allargato fino a 400ns e usato come gate di presa di segnale del modulo CIA;
-	\item il secondo viene allargato fino a 1s e usato come veto dell'AND logico del trigger per dare il tempo al CIA di processare correttamente i segnali;
-	\item dal terzo si prende l'end-marker allargato tramite un LED e ritardato di 1000 ns in modo che si collochi necessariamente dopo tutti i segnali e dopo il gate, ma comunque all'interno del tempo morto del veto. Questo segnale viene dato in input a uno dei canali del CIA (channel 7) in modo da risultare attivo, ma senza misurare nulla: ci\`o permette di fare una stima del rumore elettronico introdotto nel circuito.
-\end{enumerate}
-
-Gli altri canali del CIA sono riempiti dai segnali provenienti dai PM Left e Right degli scintillatori (channels 1-6), che vengono leggermente ritardati tramite un delay per compensare i ritardi introdotti nell'elettronica, o sono lasciati vuoti in modo da poter fare una stima del rumore termico presente nel circuito (channels 8-16).\\
-Essendo il CIA un modulo CAMAC i dati sono stati acquisiti tramite un semplice programma in LabView. I risultati dell'analisi dei dati cos\`i raccolti forniscono,come ci si poteva aspettare, delle distribuzioni di Landau (vedi Figura \ref{L00_energy} a titolo di esempio e tutte le curve in Appendice). La stima di rumore elettronico e termico \`e effettuata in Appendice.
-
-\begin{figure}[h]
- 	\begin{center}
- 		\includegraphics[width=0.5\textwidth]{./SCHEMI/Energy.png} % Include the image placeholder.png
- 		\caption{\small Rappresentazione schematica del circuito utilizzato per determinare l'energia depositata nei PM da un muone passante}
-	 	\label{fig:circ-energy}
- 	\end{center}
- \end{figure}
-
-
- \begin{figure}[H]
-   \centering
-   \includegraphics[width=0.6\textwidth]{plots/energy_L00.jpg}
-   \caption{Distribuzione della carica raccolta da L00. }
-   \label{fig:L00_energy}
- \end{figure}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
 \chapter{Misura della vita media del Muone}
 Per poter misurare la vita media dei muoni provenienti dai raggi cosmici \`e necessario costruire un circuito di trigger che permetta di selezionare eventi di tipo $\mu$-stop, ovvero tali per cui le particelle $\mu$ si fermano nella lastra di ferro presente tra i piani 1 e 2 del rivelatore. Questo segnale funger\`a da start per un modulo TDC (time to digital converter), che grazie al suo clock interno incomincer\`a a misurare il tempo trascorso fino all'arrivo di un segnale di stop rappresentato dal passaggio di un elettrone di decadimento su uno qualsiasi degli scintillatori.
 \section{Il Trigger}
