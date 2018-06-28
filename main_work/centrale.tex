@@ -133,9 +133,9 @@ Si pu\`o osservare  inoltre che le due curve risultano asimmetriche. Questo avvi
 	\caption{Curve di ritardo relative ai PM R00 (sinistra) e R01 (destra)}
 	\label{fig:delay}
 \end{figure}
- 
- 
- 
+
+
+
  \clearpage
 In Figura \ref{fig:circ-delay} si \`e riportato lo schema corrispondente al circuito utilizzato in questa sezione. Come si pu\`o osservare si \`e fatto uso di due discriminatori per la digitalizzazione del segnale, oltre che di due moduli Dual Timer che permettono di introdurre dei ritardi variabili. Per il conteggio delle coincidenze si sono infine utilizzati due moduli logici in modalit\`a AND e due contatori impostati per 60s di presa dati. Si pu\`o notare che a causa dell'asimmetria dovuta all'utilizzo del Dual Timer su uno solo dei due percorsi, viene introdotto un ritardo irriducibile che pu\`o essere stimato:
 \begin{equation}
@@ -333,7 +333,7 @@ I tagli utilizzati sono stati i seguenti:
 \begin{enumerate}[label=(\alph*)]
   \item eventi provenienti dal piano 1 in coincidienza con il piano 0, escludendo le coincidenze con il piano 2; con questo taglio s'intende conteggiare gli elettroni che dal ferro risalgono, passando per i piani 1 e 0;
   \item eventi provenienti dal piano 2, escludendo le coincidenze con i piani 0 e 1; questo taglio rappresenta gli elettroni che dal ferro scendono passando per il piano 2;
-  \item unione dei due tagli precedenti, cos\`i da conteggiare, almeno nelle intenzioni, tutti gli elettroni emessi;
+  \item unione dei due tagli precedenti, cos\`i da conteggiare tutti gli elettroni emessi;
   \item stesso taglio del punto precedente, ma con in pi\`u la condizione che il segnale sul piano 1 sia antecedente rispetto a quello sul piano 0, cos\`i da scartare muoni che potrebbero essere scambiati per elettroni di decadimento.
 \end{enumerate}
 
@@ -356,7 +356,7 @@ I tagli utilizzati sono stati i seguenti:
   \label{tab:res_fit}
 \end{table}
 
-In tutti e quattro i casi il fit \`e stato eseguito su eventi rivelati a tempi maggiori di 0.9 $\mu$s dallo START del trigger, cos\`i da escludere la grande componente di fondo presente a tempi brevi. Le curve dei fit, sovrapposte alle distribuzioni dei tempi, sono riportate in Fig. \ref{fig:taglioa}, \ref{fig:tagliob}, \ref{fig:taglioc} e \ref{fig:taglioa}. In Tab. \ref{tab:res_fit} sono invece riportati i valori trovati per la vita media del muone ($\tau_{\mu}$) in ogni taglio.
+In tutti e quattro i casi il fit è stato eseguito su eventi rivelati a tempi maggiori di 0.9 $\mu$s dallo START del trigger, così da escludere i decadimenti dei muoni negativi, caratterizzati da una vita media di circa 200 ns, che veranno considerati nella sezione successiva. Le curve dei fit, sovrapposte alle distribuzioni dei tempi, sono riportate in Fig. \ref{fig:taglioa}, \ref{fig:tagliob}, \ref{fig:taglioc} e \ref{fig:taglioa}. In Tab. \ref{tab:res_fit} sono invece riportati i valori trovati per la vita media del muone ($\tau_{\mu}$) in ogni taglio.
 
 
 \begin{figure}[H]
@@ -401,12 +401,12 @@ La vita media del muone negativo in un atomo muonico \`e dunque determinata da q
 
 Essa, nella sua componente dovuta alla cattura, dipende fortemente dal numero atomico $Z$ del materiale. Nel caso del ferro ($Z=26$) si hanno:
 \begin{equation}
-  \tau^{-}_{capture}=0.22 \mu s
+  \tau^{-}_{capture}=0.22\, \mu\text{s}
   \label{eqn:tau_cap_iron}
 \end{equation}
 
 \begin{equation}
-  \tau_{A}=0.20 \mu s
+  \tau_{A}=0.20\, \mu\text{s}
   \label{eqn:tau_tot_iron}
 \end{equation}
 Si sottolinea che negli esperimenti \`e sempre la $\tau_{A}$ ad essere misurata.
@@ -419,7 +419,7 @@ In fase di analisi dati, \`e possibile tenere conto del diverso contributo dei $
   \label{eqn:complex_expo}
 \end{equation}
 
-Il taglio imposto \`e stato lo stesso del punto (c) del paragrafo precedente. Sono stati eseguiti due tipi di fit: nel primo sia $\tau_{\mu}$ che $\tau_{A}$ sono liberi, mentre nel secondo si \`e fissato $\tau_{\mu}=2.197 \mu$s come riportato in \cite{pdg}. I valori stimati per $\tau_{A}$ e $\tau^{-}_{capture}$, dove quest'ultimo \`e trovato applicando \ref{eqn:neg_muon_total}, sono riportati in Tabella \ref{tab:negative_muon}. Istogrammi e plot sono invece riportati in Fig. (\ref{fig:soft_doubleexp}) e (\ref{fig:soft_doubleexp_fixed}).
+Il taglio imposto \`e stato lo stesso del punto (c) del paragrafo precedente. Sono stati eseguiti due tipi di fit: nel primo sia $\tau_{\mu}$ che $\tau_{A}$ sono liberi, mentre nel secondo si \`e fissato $\tau_{\mu}=2.197\, \mu$s come riportato in \cite{pdg}. I valori stimati per $\tau_{A}$ e $\tau^{-}_{capture}$, dove quest'ultimo \`e trovato applicando (\ref{eqn:neg_muon_total}), sono riportati in Tabella \ref{tab:negative_muon}. Istogrammi e plot sono invece riportati in Fig. (\ref{fig:soft_doubleexp}) e (\ref{fig:soft_doubleexp_fixed}).
 
 \begin{table}[H]
   \centering
@@ -434,23 +434,25 @@ Il taglio imposto \`e stato lo stesso del punto (c) del paragrafo precedente. So
     \hline
     \hline
   \end{tabular}
-  \caption{Valori fittati fittando i dati ad un modello che considera anche la vita media dei muoni negativi.}
+  \caption{Valori ottenuti fittando i dati ad un modello che considera anche la vita media dei muoni negativi. Si pu\`o vedere che i valori di $\tau_{A}$ e $\tau_{capture}^{-}$ si discostano leggermente dai valori attesi, anche considerando le incertezze sperimentali. Per quanto riguarda invece $\tau_{\mu}$, esso risulta compatibile con il valore atteso entro l'incertezza.}
   \label{tab:negative_muon}
 \end{table}
 
 \begin{figure}[H]
   \centering
   \includegraphics[width=\textwidth]{plots/soft_doubleexp.eps}
-  \caption{}
+  \caption{Taglio (c) con fit ad un modello che comprende due termini esponenziali; sia $\tau_{\mu}$ che $\tau_{A}$ sono liberi.}
   \label{fig:soft_doubleexp}
 \end{figure}
 
 \begin{figure}[H]
   \centering
   \includegraphics[width=\textwidth]{plots/soft_doubleexp_fixed.eps}
-  \caption{}
+  \caption{Taglio (c) con fit ad un modello che comprende due termini esponenziali; $\tau_{\mu}$ \`e fissato, mentre $\tau_{A}$ è libero.}
   \label{fig:soft_doubleexp_fixed}
 \end{figure}
+
+Poich\`e l'errore relativo su $\tau_{A}$ resta comunque piuttosto alto ($\approx 30 \%$ nel caso di due parametri liberi, $\approx 20 \%$ nel caso di uno), non includeremo questi risultati nelle conclusioni, attribuendo a quest'ultimo studio lo scopo di giustificare la decisione di escludere gli eventi a tempi molto brevi dell'analisi precedente.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%per fare le conclusioni
 \chapter{Conclusioni}
@@ -461,7 +463,7 @@ Il procedimento di misura della vita media del muone pu\`o riassumersi in due pa
   \item nella prima si \`e configurato l'apparato sperimentale: \`e stato realizzato il circuito di trigger per la determinazione degli eventi di $\mu$-stop, sono state individuate le tensioni di discriminazione, valutati i ritardi sui segnali e infine calibrati i TDC;
   \item nella seconda sono stati raccolti e analizzati i dati: l'analisi \`e stata effettuata determinando i tagli opportuni da applicare agli eventi raccolti negli istogrammi.
 \end{itemize}
-Il risultato finale ottenuto \`e di
+Si sceglie di utilizzare come miglior stima quella ottenuta dal taglio (c) descritto nella sezione precedente, essendo quello fisicamente pi\`u corretto. Il risultato finale ottenuto \`e quindi di
 \begin{equation}
   \tau_{\mu} = 2.123 \pm 0.291 \mu\text{s}
   \label{final_res}
