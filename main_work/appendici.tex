@@ -104,17 +104,17 @@ T (\mu-passante)=(L00 \lor R00) \land (L10 \lor R10) \land (L20 \lor R20)
 \end{equation}
 La carica depositata sui tre scintillatori \`e misurata tramite un modulo CaMAC CIA (Charge Integrating ADC) il quale integra il segnale analogico in ingresso per un certo intervallo di tempo definito dalla lunghezza del segnale digitale sul GATE. Il segnale del Trigger viene dato in entrata a tre dual-timer:
 \begin{enumerate}
-	\item il primo viene allargato fino a 400ns e usato come gate di presa di segnale del modulo CIA;
+	\item il primo viene allargato fino a 400ns e usato come GATE di presa di segnale del modulo CIA (ovvero viene messo in coincidenza con gli altri segnali in entrati in modo che i dati vengano presi solo mentre l'onda quadra \`e in un 1 logico, ovvero per un tempo che corrisponde alla sua larghezza);
 	\item il secondo viene allargato fino a 1s e usato come veto dell'AND logico del trigger per dare il tempo al CIA di processare correttamente i segnali;
 	\item dal terzo si prende l'end-marker allargato tramite un LED e ritardato di 1000 ns in modo che si collochi necessariamente dopo tutti i segnali e dopo il gate, ma comunque all'interno del tempo morto del veto. Questo segnale viene dato in input a uno dei canali del CIA (channel 7) in modo da risultare attivo, ma senza misurare nulla: ci\`o permette di fare una stima del rumore elettronico introdotto nel circuito.
 \end{enumerate}
 
 Gli altri canali del CIA sono riempiti dai segnali provenienti dai PM Left e Right degli scintillatori (channels 1-6), che vengono leggermente ritardati tramite un delay per compensare i ritardi introdotti nell'elettronica, o sono lasciati vuoti in modo da poter fare una stima del rumore termico presente nel circuito (channels 8-16).\\
-Essendo il CIA un modulo CAMAC i dati sono stati acquisiti tramite un semplice programma in LabView. I risultati dell'analisi dei dati cos\`i raccolti forniscono,come ci si poteva aspettare, delle distribuzioni di Landau (vedi Figura \ref{L00_energy} a titolo di esempio e tutte le curve in Appendice). La stima di rumore elettronico e termico \`e effettuata in Appendice.
+Essendo il CIA un modulo CAMAC i dati sono stati acquisiti tramite un semplice programma in LabView. I risultati dell'analisi dei dati cos\`i raccolti forniscono,come ci si poteva aspettare, delle distribuzioni di Landau (vedi Figura \ref{fig:L00_energy} a titolo di esempio). 
 
-\begin{figure}[h]
+\begin{figure}[H]
  	\begin{center}
- 		\includegraphics[width=0.5\textwidth]{./SCHEMI/Energy.png} % Include the image placeholder.png
+ 		\includegraphics[width=0.8\textwidth]{./SCHEMI/Energy.png} % Include the image placeholder.png
  		\caption{\small Rappresentazione schematica del circuito utilizzato per determinare l'energia depositata nei PM da un muone passante}
 	 	\label{fig:circ-energy}
  	\end{center}
@@ -123,7 +123,7 @@ Essendo il CIA un modulo CAMAC i dati sono stati acquisiti tramite un semplice p
 
  \begin{figure}[H]
    \centering
-   \includegraphics[width=0.6\textwidth]{plots/energy_L00.eps}
+   \includegraphics[width=0.7\textwidth]{plots/energy_L00.eps}
    \caption{Distribuzione della carica raccolta da L00. }
    \label{fig:L00_energy}
  \end{figure}
