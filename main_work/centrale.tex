@@ -59,9 +59,9 @@
 				\hline \hline                           %inserisce due righe orizzontali
 				PM & $Tensione\ di \ lavoro$\\           %& separa le colonne e con
 				\hline                                  %inserisce una riga orizzontale
-				L00B & $825\ mV$ \\           %  \\ va a capo
+				L00B & $825\ V$ \\           %  \\ va a capo
 				\hline                                  %inserisce una riga orizzontale
-				R00B & $850\ mV$ \\
+				R00B & $850\ V$ \\
 				\hline \hline                           %inserisce due righe orizzontali
 			\end{tabular}
 			\caption{tabella contenente le tensioni di lavoro stimate per i PM}
@@ -87,7 +87,7 @@
 		\end{center}
 	\end{figure}
 	\clearpage
-	Il circuito realizzato per eseguire le misure \`e invece schematizzato in Figura \ref{fig:circ-tens} e consiste di due generatori di tensione variabili (CAEN Mod.470) che alimentano i due PM. Il segnale analogico prodotto da questi viene quindi fatto passare attraverso dei discriminatori LED (CAEN Mod.840) che lo trasformano in un segnale digitale standard NIM costituito da un impulso di onda quadra larga 40ns e profonda -800 mV. I segnali digitalizzati dei due PM sono quindi portati in coincidenza tramite un modulo logico AND (CAEN Mod 405),collegato a sua volta un modulo counter, con il quale \`e  stato possibile contare il numero totale di corrispondenze per un tempo di presa dati impostato a 90s. Sebbene non sia rappresentato in figura, i conteggi sono stati effettuati in maniera analoga anche  per i singoli canali, che sono stati sdoppiati utilizzando dei moduli FAN I/O, e collegati individualmente a degli ulteriori moduli counter.\\
+	Il circuito realizzato per eseguire le misure \`e invece schematizzato in Figura \ref{fig:circ-tens} e consiste di due generatori di tensione variabili (CAEN Mod.470) che alimentano i due PM. Il segnale analogico prodotto da questi viene quindi fatto passare attraverso dei discriminatori LED (CAEN Mod.840) che lo trasformano in un segnale digitale standard NIM costituito da un impulso di onda quadra larga 40 ns e profonda -800 mV. I segnali digitalizzati dei due PM sono quindi portati in coincidenza tramite un modulo logico AND (CAEN Mod 405),collegato a sua volta un modulo counter, con il quale \`e  stato possibile contare il numero totale di corrispondenze per un tempo di presa dati impostato a 90s. Sebbene non sia rappresentato in figura, i conteggi sono stati effettuati in maniera analoga anche  per i singoli canali, che sono stati sdoppiati utilizzando dei moduli FAN I/O, e collegati individualmente a degli ulteriori moduli counter.\\
 	
 	
 	\section{Curve di ritardo}
