@@ -89,7 +89,7 @@ Al fine di misurare il tempo di vita media del muone nel sistema di riferimento 
 Gli eventi $\mu_{stop}$ vengono selezionati costruendo un circuito di trigger che individua le sole particelle che danno un segnale nel Piano 0 e nel Piano 1, ma non nel Piano 2 (cfr Misure Preliminari/Trigger). In questo modo \`e possibile selezionare i muoni che, dopo essere stati rallentati dal blocco di ferro, attraversano i primi due scintillatori e vengono fermati dalla lastra di ferro dove, successivamente, decadranno.
 Tale segnale di trigger viene utilizzato come start per i TDC che verranno poi stoppati da un segnale generato da un elettrone rivelato su uno dei tre piani. Dalla distribuzione dei tempi di decadimento misurati \`e infine possibile, tramite un fit esponenziale, ricavare la vita media del muone.
 
-Un'altra categoria di eventi utilizzata per la misura di perdita di energia (cfr Appendice) \`e quella dei $\mu_{passante}$ ovvero dei muoni che attraversano tutte le tre lastre di scintillatore. Tramite l'utilizzo di Geant4 è stato possibile simulare l'arrivo si muoni sul rivelatore e la loro interazione con quest'ultimo, andando a osservare gli eventi di $\mu_{stop}$ possibili. In Fig. 1.5 \`e mostrato uno schema del rivelatore dove sono simulate le due categorie di eventi presi in esame.
+Un'altra categoria di eventi utilizzata per la misura di perdita di energia (cfr Appendice) \`e quella dei $\mu_{passante}$ ovvero dei muoni che attraversano tutte le tre lastre di scintillatore. Tramite l'utilizzo di Geant4 \`e stato possibile simulare l'arrivo si muoni sul rivelatore e la loro interazione con quest'ultimo, andando a osservare gli eventi di $\mu_{stop}$ possibili. In Fig. 1.5 \`e mostrato uno schema del rivelatore dove sono simulati i due eventi $\mu_{stop}$ presi in esame.
 
 \begin{figure}[H]
   \centering
@@ -100,18 +100,18 @@ Un'altra categoria di eventi utilizzata per la misura di perdita di energia (cfr
 \end{figure}
 
 \subsection{Moduli di elettronica}
-Al fine di effettuare le varie misurazioni si sono utilizzati diversi moduli di elettronica. La maggior parte dei moduli è di tipo NIM, ad esclusione del modulo TDC e ADC che sono di tipo CAMAC.
+Al fine di effettuare le varie misurazioni si sono utilizzati diversi moduli di elettronica. La maggior parte dei moduli \`e di tipo NIM, ad esclusione del modulo TDC e ADC che sono di tipo CAMAC.
 I moduli utilizzati sono:\\
 \begin{enumerate}
-	\item 4ch Programmable HV Power Supply (CAEN Mod.N470), alimentatori di alta tensione necessari per alimentare i PMT.
-	\item 8ch LED (Leading Edge Discriminator) (CAEN Mod. N840), discriminatori necessari per convertire il segnale analogico in ingresso in un segnale digitale in standard NIM.
-	\item Quad Scaler and Preset Counter Timer (CAEN Mod. N145), contatore utilizzato per misurare il numero di eventi rivelati in una quantit\`a di tempo fissata.
-	\item Quad Linear Fan-In Fan-Out (CAEN Mod. N625), moduli utilizzati per ottenere fino a quattro copie di un segnale in ingresso.
-	\item 3 Fold Logic Unit (CAEN Mod. N405), moduli utilizzati per effettuare operazioni logiche (AND, OR) sui segnali in ingresso. Il modulo \`e dotato inoltre di un input VETO che impedisce le operazioni logiche quando \`e presente.
-	\item 4-8 Logic Fan-In Fan-Out (CAEN Mod. N454), moduli Fan-In Fan-Out in grado di restituire fino a otto copie del segnale in ingresso.
-	\item Dual Timer (CAEN Mod. N93B), modulo in grado di generare segnali di durata variabile a partire da un segnale di Start; il modulo pu\`o inoltre generare un End Marker, ovvero un segnale in standard NIM emesso alla fine del segnale di durata variabile.
-	\item 8ch TDC (CAEN Mod. C414), Time to Digital Converter con Start comune e otto canali indipendenti di misura del tempo.
-	\item 16ch CIA (CAEN Mod. C205A) ADC a integrazione di carica che integra il segnale in ingresso per l'intervallo di tempo in cui \`e attivo il segnale di GATE, restituendo la carica totale.
+	\item 4ch Programmable HV Power Supply (CAEN Mod.N470), alimentatori di alta tensione necessari per alimentare i PMT;
+	\item 8ch LED (Leading Edge Discriminator) (CAEN Mod. N840), discriminatori necessari per convertire il segnale analogico in ingresso in un segnale digitale in standard NIM;
+	\item Quad Scaler and Preset Counter Timer (CAEN Mod. N145), contatore utilizzato per misurare il numero di eventi rivelati in una quantit\`a di tempo fissata;
+	\item Quad Linear Fan-In Fan-Out (CAEN Mod. N625), moduli utilizzati per ottenere fino a quattro copie di un segnale in ingresso;
+	\item 3 Fold Logic Unit (CAEN Mod. N405), moduli utilizzati per effettuare operazioni logiche (AND, OR) sui segnali in ingresso; Il modulo \`e dotato inoltre di un input VETO che impedisce le operazioni logiche quando \`e presente;
+	\item 4-8 Logic Fan-In Fan-Out (CAEN Mod. N454), moduli Fan-In Fan-Out in grado di restituire fino a otto copie del segnale in ingresso;
+	\item Dual Timer (CAEN Mod. N93B), modulo in grado di generare segnali di durata variabile a partire da un segnale di Start; il modulo pu\`o inoltre generare un End Marker, ovvero un segnale in standard NIM emesso alla fine del segnale di durata variabile;
+	\item 8ch TDC (CAEN Mod. C414), Time to Digital Converter con Start comune e otto canali indipendenti di misura del tempo;
+	\item 16ch CIA (CAEN Mod. C205A) ADC a integrazione di carica che integra il segnale in ingresso per l'intervallo di tempo in cui \`e attivo il segnale di GATE, restituendo la carica totale;
 	\item Delay line, modulo utile per ritardare un segnale di un intervallo di tempo noto.
 \end{enumerate}
 
